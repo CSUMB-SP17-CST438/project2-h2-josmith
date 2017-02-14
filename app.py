@@ -23,7 +23,10 @@ def on_connect():
 def handle_json(json):
     print('received json: ' + json['text'])
     
-    
+@socketio.on('send:message')
+def handle_my_custom_event(data):
+   socketio.emit('my response', data, broadcast=True)
+
 socketio.run(
     app,
     host=os.getenv('IP', '0.0.0.0'),

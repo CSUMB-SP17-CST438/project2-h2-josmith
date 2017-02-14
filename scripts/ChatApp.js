@@ -184,7 +184,7 @@ var ChatApp = React.createClass({
 		var {messages} = this.state;
 		messages.push(message);
 		this.setState({messages});
-		Socket.emit.('send:message', message, broadcast = True);
+		Socket.emit.('send:message', message);
 	},
 
 	handleChangeName(newName) {
