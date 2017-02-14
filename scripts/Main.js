@@ -1,11 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import { Content } from './Content';
+
 import { Socket } from './Socket';
+import ChatApp from './ChatApp';
 
-ReactDOM.render(<Content />, document.getElementById('content'));
-
+ReactDOM.render(<ChatApp />, document.getElementById('content'));
 Socket.on('connect', function() {
     console.log('Connecting to the server!');
 });

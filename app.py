@@ -1,6 +1,10 @@
 import os
 import flask, flask_socketio
 
+try:
+    import json
+except ImportError:
+    import simplejson as json
 
 app = flask.Flask(__name__)
 
@@ -13,6 +17,13 @@ def hello():
 @socketio.on('connect')
 def on_connect():
    print 'Someone connected!------------------------------------'
+   
+ 
+@socketio.on('send:message')
+def handle_json(json):
+    print('received json: ' + json['text'])
+    socketio.emit('send:message', {'data': json['text']})
+    
     
 socketio.run(
     app,
