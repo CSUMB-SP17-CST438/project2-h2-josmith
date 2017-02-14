@@ -22,7 +22,6 @@ def on_connect():
 @socketio.on('send:message')
 def handle_json(json):
     print('received json: ' + json['text'])
-    socketio.emit('send:message', {'data': json['text']})
     
     
 socketio.run(
