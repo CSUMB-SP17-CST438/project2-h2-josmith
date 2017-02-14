@@ -5,7 +5,7 @@ var UsersList = React.createClass({
 	render() {
 		return (
 			<div className='users'>
-				// <h3> Online Users </h3>
+				<h3> Online Users </h3>
 				<ul>
 					{
 						this.props.users.map((user, i) => {
@@ -65,7 +65,7 @@ var MessageForm = React.createClass({
 		var message = {
 			user : this.props.user,
 			text : this.state.text
-		}
+		};
 		this.props.onMessageSubmit(message);	
 		this.setState({ text: '' });
 	},
@@ -89,31 +89,7 @@ var MessageForm = React.createClass({
 	}
 });
 
-var ChangeNameForm = React.createClass({
-	getInitialState() {
-		return {newName: ''};
-	},
 
-	onKey(e) {
-		this.setState({ newName : e.target.value });
-	},
-
-	handleSubmit(e) {
-		e.preventDefault();
-		var newName = this.state.newName;
-		this.props.onChangeName(newName);	
-		this.setState({ newName: '' });
-	},
-
-	render() {
-		return(
-			<div className='change_name_form'>
-				<h3> </h3>
-
-			</div>
-		);
-	}
-});
 
 var ChatApp = React.createClass({
 
@@ -126,7 +102,6 @@ var ChatApp = React.createClass({
 		Socket.on('send:message', this._messageRecieve);
 		Socket.on('user:join', this._userJoined);
 		Socket.on('user:left', this._userLeft);
-		Socket.on('change:name', this._userChangedName);
 	},
 
 	_initialize(data) {
@@ -163,36 +138,11 @@ var ChatApp = React.createClass({
 		this.setState({users, messages});
 	},
 
-	_userChangedName(data) {
-		var {oldName, newName} = data;
-		var {users, messages} = this.state;
-		var index = users.indexOf(oldName);
-		users.splice(index, 1, newName);
-		messages.push({
-			user: 'APPLICATION BOT',
-			text : 'Change Name : ' + oldName + ' ==> '+ newName
-		});
-		this.setState({users, messages});
-	},
-
 	handleMessageSubmit(message) {
 		var {messages} = this.state;
 		messages.push(message);
 		this.setState({messages});
-		Socket.emit.('send:message', message);
-	},
-
-	handleChangeName(newName) {
-		var oldName = this.state.user;
-		Socket.emit('change:name', { name : newName}, (result) => {
-			if(!result) {
-				return alert('There was an error changing your name');
-			}
-			var {users} = this.state;
-			var index = users.indexOf(oldName);
-			users.splice(index, 1, newName);
-			this.setState({users, user: newName});
-		});
+		Socket.emit('send:message', message);
 	},
 
 	render() {
@@ -207,9 +157,6 @@ var ChatApp = React.createClass({
 				<MessageForm
 					onMessageSubmit={this.handleMessageSubmit}
 					user={this.state.user}
-				/>
-				<ChangeNameForm
-					onChangeName={this.handleChangeName}
 				/>
 			</div>
 		);
