@@ -5,7 +5,7 @@ var UsersList = React.createClass({
 	render() {
 		return (
 			<div className='users'>
-				<h3> Online Users </h3>
+				// <h3> Online Users </h3>
 				<ul>
 					{
 						this.props.users.map((user, i) => {
@@ -108,13 +108,13 @@ var ChangeNameForm = React.createClass({
 	render() {
 		return(
 			<div className='change_name_form'>
-				<h3> Change Name </h3>
-				<form onSubmit={this.handleSubmit}>
-					<input
-						onChange={this.onKey}
-						value={this.state.newName} 
-					/>
-				</form>	
+				// <h3> Change Name </h3>
+				// <form onSubmit={this.handleSubmit}>
+				// 	<input
+				// 		onChange={this.onKey}
+				// 		value={this.state.newName} 
+				// 	/>
+				// </form>	
 			</div>
 		);
 	}
