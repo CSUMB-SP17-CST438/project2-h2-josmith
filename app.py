@@ -25,7 +25,7 @@ def handle_json(json):
     
 @socketio.on('send:message')
 def handle_my_custom_event(data):
-   socketio.emit('send:message', data, broadcast=True)
+   socketio.emit('send:message', data, broadcast=True, include_self = False)
 
 socketio.run(
     app,
