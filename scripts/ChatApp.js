@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Socket } from './Socket';
-
+import GoogleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
 
 var UsersList = React.createClass({
 	render() {
@@ -100,7 +101,16 @@ var MessageForm = React.createClass({
 	}
 });
 
+const responseGoogle = (response) => {
+  console.log(response);
+  alert(response);
+};
 
+ 
+const responseFacebook = (response) => {
+  console.log(response);
+  alert(response);
+};
 
 var ChatApp = React.createClass({
 
@@ -160,6 +170,19 @@ var ChatApp = React.createClass({
 	render() {
 		return (
 			<div>
+			  <GoogleLogin
+			    clientId="339887222847-7237f4eqsp22ddnj9h44chgbnoq1s8mk.apps.googleusercontent.com"
+			    buttonText="Login"
+			    onSuccess={responseGoogle}
+			    onFailure={responseGoogle}
+			  />
+			    <FacebookLogin
+				    appId="252733528514405"
+				    autoLoad={true}
+				    fields="name,email,picture"
+				    callback={responseFacebook}
+				
+				    />
 			   <UserCount
 					users={this.state.users}
 				/>

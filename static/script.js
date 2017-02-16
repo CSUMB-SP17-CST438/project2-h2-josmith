@@ -13099,6 +13099,16 @@ var React = _interopRequireWildcard(_react);
 
 var _Socket = __webpack_require__(63);
 
+var _reactGoogleLogin = __webpack_require__(107);
+
+var _reactGoogleLogin2 = _interopRequireDefault(_reactGoogleLogin);
+
+var _reactFacebookLogin = __webpack_require__(250);
+
+var _reactFacebookLogin2 = _interopRequireDefault(_reactFacebookLogin);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 var UsersList = React.createClass({
@@ -13224,6 +13234,16 @@ var MessageForm = React.createClass({
 	}
 });
 
+var responseGoogle = function responseGoogle(response) {
+	console.log(response);
+	alert(response);
+};
+
+var responseFacebook = function responseFacebook(response) {
+	console.log(response);
+	alert(response);
+};
+
 var ChatApp = React.createClass({
 	displayName: 'ChatApp',
 	getInitialState: function getInitialState() {
@@ -13287,6 +13307,19 @@ var ChatApp = React.createClass({
 		return React.createElement(
 			'div',
 			null,
+			React.createElement(_reactGoogleLogin2.default, {
+				clientId: '339887222847-7237f4eqsp22ddnj9h44chgbnoq1s8mk.apps.googleusercontent.com',
+				buttonText: 'Login',
+				onSuccess: responseGoogle,
+				onFailure: responseGoogle
+			}),
+			React.createElement(_reactFacebookLogin2.default, {
+				appId: '252733528514405',
+				autoLoad: true,
+				fields: 'name,email,picture',
+				callback: responseFacebook
+
+			}),
 			React.createElement(UserCount, {
 				users: this.state.users
 			}),
@@ -30350,46 +30383,13 @@ var _ChatApp = __webpack_require__(105);
 
 var _ChatApp2 = _interopRequireDefault(_ChatApp);
 
-var _reactGoogleLogin = __webpack_require__(107);
-
-var _reactGoogleLogin2 = _interopRequireDefault(_reactGoogleLogin);
-
-var _reactFacebookLogin = __webpack_require__(250);
-
-var _reactFacebookLogin2 = _interopRequireDefault(_reactFacebookLogin);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-var responseGoogle = function responseGoogle(response) {
-  console.log(response);
-  alert(response);
-};
-
-var responseFacebook = function responseFacebook(response) {
-  console.log(response);
-  alert(response);
-};
-
-ReactDOM.render(React.createElement(_reactFacebookLogin2.default, {
-  appId: '252733528514405',
-  autoLoad: true,
-  fields: 'name,email,picture',
-  callback: responseFacebook
-
-}), document.getElementById('facebook'));
-
-ReactDOM.render(React.createElement(_reactGoogleLogin2.default, {
-  clientId: '339887222847-7237f4eqsp22ddnj9h44chgbnoq1s8mk.apps.googleusercontent.com',
-  buttonText: 'Login',
-  onSuccess: responseGoogle,
-  onFailure: responseGoogle
-}), document.getElementById('googleButton'));
-
 ReactDOM.render(React.createElement(_ChatApp2.default, null), document.getElementById('content'));
 _Socket.Socket.on('connect', function () {
-  console.log('Connecting to the server!');
+    console.log('Connecting to the server!');
 });
 
 /***/ }),
