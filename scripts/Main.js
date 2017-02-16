@@ -3,10 +3,29 @@ import * as ReactDOM from 'react-dom';
 import { Socket } from './Socket';
 import ChatApp from './ChatApp';
 import GoogleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
 
 const responseGoogle = (response) => {
   console.log(response);
+  alert(response);
 };
+
+ 
+const responseFacebook = (response) => {
+  console.log(response);
+  alert(response);
+};
+ 
+ReactDOM.render(
+  <FacebookLogin
+    appId="252733528514405"
+    autoLoad={true}
+    fields="name,email,picture"
+    callback={responseFacebook}
+
+    />,
+  document.getElementById('facebook')
+);
 
 ReactDOM.render(
   <GoogleLogin

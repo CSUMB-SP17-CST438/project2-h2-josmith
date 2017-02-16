@@ -1,3 +1,5 @@
 Flask
 simplejson
 flask_socketio
+react-facebook-login
+react-google-login
