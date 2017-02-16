@@ -1,5 +1,4 @@
 Flask
 simplejson
 flask_socketio
-npm install react-facebook-login
-npm install react-google-login
+
