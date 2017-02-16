@@ -19,13 +19,22 @@ def on_connect():
    print 'Someone connected!------------------------------------'
    
  
-@socketio.on('send:message')
-def handle_json(json):
-    print('received json: ' + json['text'])
+# @socketio.on('send:message')
+# def handle_json(json):
+#     print('received json: ' + json['text'])
     
 @socketio.on('send:message')
 def handle_my_custom_event(data):
-   socketio.emit('send:message', data, broadcast=True, include_self = False)
+    print('received json: ' + json.dumps(data))
+    socketio.emit('send:message', data, broadcast=True, include_self = False)
+   
+@socketio.on('connect', namespace='/')
+def test_connect():
+    socketio.emit('user:join', {'users': 'Sammy CAT'})
+
+@socketio.on('disconnect', namespace='/')
+def test_disconnect():
+    socketio.emit('user:left', {'users': 'Sammy Cat'})
 
 socketio.run(
     app,

@@ -65,7 +65,7 @@ var MessageForm = React.createClass({
 		var message = {
 			user : this.props.user,
 			text : this.state.text
-		};
+		}
 		this.props.onMessageSubmit(message);	
 		this.setState({ text: '' });
 	},
@@ -117,7 +117,8 @@ var ChatApp = React.createClass({
 
 	_userJoined(data) {
 		var {users, messages} = this.state;
-		var {name} = data;
+		var name = data['users'];
+		
 		users.push(name);
 		messages.push({
 			user: 'APPLICATION BOT',
@@ -128,7 +129,7 @@ var ChatApp = React.createClass({
 
 	_userLeft(data) {
 		var {users, messages} = this.state;
-		var {name} = data;
+		var name = data;
 		var index = users.indexOf(name);
 		users.splice(index, 1);
 		messages.push({
@@ -140,6 +141,7 @@ var ChatApp = React.createClass({
 
 	handleMessageSubmit(message) {
 		var {messages} = this.state;
+		//console.log(messages);
 		messages.push(message);
 		this.setState({messages});
 		Socket.emit('send:message', message);
@@ -154,9 +156,10 @@ var ChatApp = React.createClass({
 				<MessageList
 					messages={this.state.messages}
 				/>
+				{console.log(this.state.user)}
 				<MessageForm
 					onMessageSubmit={this.handleMessageSubmit}
-					user={this.state.user}
+					user={"sam"}
 				/>
 			</div>
 		);
