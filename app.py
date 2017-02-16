@@ -13,7 +13,6 @@ socketio = flask_socketio.SocketIO(app)
 @app.route('/')
 def hello():
    return flask.render_template('index.html')
-   
 @socketio.on('connect')
 def on_connect():
    print 'Someone connected!------------------------------------'
