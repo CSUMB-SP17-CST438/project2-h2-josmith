@@ -33,6 +33,16 @@ var Message = React.createClass({
 	}
 });
 
+var UserCount = React.createClass({
+	render() {
+		return (
+			<div className="user_count">
+				<strong>Current Users: {this.props.users.length}</strong> 
+			</div>
+		);
+	}
+});
+
 var MessageList = React.createClass({
 	render() {
 		return (
@@ -114,7 +124,6 @@ var ChatApp = React.createClass({
 		messages.push(message);
 		this.setState({messages});
 	},
-
 	_userJoined(data) {
 		var {users, messages} = this.state;
 		var name = data['users'];
@@ -150,6 +159,9 @@ var ChatApp = React.createClass({
 	render() {
 		return (
 			<div>
+			   <UserCount
+					users={this.state.users}
+				/>
 				<UsersList
 					users={this.state.users}
 				/>

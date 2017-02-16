@@ -13,16 +13,11 @@ socketio = flask_socketio.SocketIO(app)
 @app.route('/')
 def hello():
    return flask.render_template('index.html')
-    
+   
 @socketio.on('connect')
 def on_connect():
    print 'Someone connected!------------------------------------'
    
- 
-# @socketio.on('send:message')
-# def handle_json(json):
-#     print('received json: ' + json['text'])
-    
 @socketio.on('send:message')
 def handle_my_custom_event(data):
     print('received json: ' + json.dumps(data))
