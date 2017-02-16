@@ -138,7 +138,7 @@ var ChatApp = React.createClass({
 
 	_userLeft(data) {
 		var {users, messages} = this.state;
-		var name = data;
+		var name = data['users'];
 		var index = users.indexOf(name);
 		users.splice(index, 1);
 		messages.push({
