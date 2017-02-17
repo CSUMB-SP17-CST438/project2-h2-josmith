@@ -28,7 +28,7 @@ def test_connect():
 
 @socketio.on('disconnect', namespace='/')
 def test_disconnect():
-    socketio.emit('user:left', {'users': 'Sammy Cat'})
+    socketio.emit('user:left', {'users': 'bob'})
 
 socketio.run(
     app,
