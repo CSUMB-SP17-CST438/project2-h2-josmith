@@ -13143,6 +13143,7 @@ var Message = React.createClass({
 		return React.createElement(
 			'div',
 			{ className: 'message' },
+			React.createElement('img', { src: this.props.image }),
 			React.createElement(
 				'strong',
 				null,
@@ -13150,9 +13151,13 @@ var Message = React.createClass({
 				' :'
 			),
 			React.createElement(
-				'span',
+				'div',
 				null,
-				this.props.text
+				React.createElement(
+					'p',
+					null,
+					this.props.text
+				)
 			)
 		);
 	}
@@ -13188,6 +13193,7 @@ var MessageList = React.createClass({
 			this.props.messages.map(function (message, i) {
 				return React.createElement(Message, {
 					key: i,
+					image: message.image,
 					user: message.user,
 					text: message.text
 				});
@@ -13204,6 +13210,7 @@ var MessageForm = React.createClass({
 	handleSubmit: function handleSubmit(e) {
 		e.preventDefault();
 		var message = {
+			image: this.props.image,
 			user: this.props.user,
 			text: this.state.text
 		};
@@ -13236,18 +13243,25 @@ var MessageForm = React.createClass({
 
 var responseGoogle = function responseGoogle(response) {
 	console.log(response);
-	alert(response);
+	alert(response['picture']['data']['url']);
+
+	if (!response) {
+		_Socket.Socket.emit('google:athenticate', response);
+	}
 };
 
 var responseFacebook = function responseFacebook(response) {
 	console.log(response);
-	alert(response);
+	// alert(response['picture']['data']['url']);
+	if (response['picture']['data']['url'] != "") {
+		_Socket.Socket.emit('google:athenticate', response);
+	}
 };
 
 var ChatApp = React.createClass({
 	displayName: 'ChatApp',
 	getInitialState: function getInitialState() {
-		return { users: [], messages: [], text: '' };
+		return { image: [], users: [], messages: [], text: '' };
 	},
 	componentDidMount: function componentDidMount() {
 		_Socket.Socket.on('init', this._initialize);
@@ -13272,14 +13286,17 @@ var ChatApp = React.createClass({
 		    users = _state.users,
 		    messages = _state.messages;
 
-		var name = data['users'];
-
+		var the_name = data['users'];
+		var name = the_name['name'];
+		var the_image = data['users'];
+		var image = the_image['picture']['data']['url'];
+		console.log(image);
 		users.push(name);
 		messages.push({
 			user: 'APPLICATION BOT',
 			text: name + ' Joined'
 		});
-		this.setState({ users: users, messages: messages });
+		this.setState({ image: image, name: name, users: users, messages: messages });
 	},
 	_userLeft: function _userLeft(data) {
 		var _state2 = this.state,
@@ -13318,7 +13335,6 @@ var ChatApp = React.createClass({
 				autoLoad: true,
 				fields: 'name,email,picture',
 				callback: responseFacebook
-
 			}),
 			React.createElement(UserCount, {
 				users: this.state.users
@@ -13326,20 +13342,29 @@ var ChatApp = React.createClass({
 			React.createElement(UsersList, {
 				users: this.state.users
 			}),
-			React.createElement(MessageList, {
-				messages: this.state.messages
-			}),
-			console.log(this.state.user),
-			React.createElement(MessageForm, {
-				onMessageSubmit: this.handleMessageSubmit,
-				user: "sam"
-			})
+			React.createElement(
+				'div',
+				{ id: 'device' },
+				React.createElement(
+					'div',
+					{ className: 'chat' },
+					React.createElement(MessageList, {
+						messages: this.state.messages
+					})
+				),
+				React.createElement(MessageForm, {
+					onMessageSubmit: this.handleMessageSubmit,
+					user: this.state.name,
+					image: this.state.image
+				})
+			),
+			console.log(this.state.image)
 		);
 	}
 });
 
 _Socket.Socket.on('connect', function () {
-	console.log('Connecting to the server!');
+	//  console.log('Connecting to the server!');
 });
 
 exports.default = ChatApp;

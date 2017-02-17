@@ -22,14 +22,19 @@ def handle_my_custom_event(data):
     print('received json: ' + json.dumps(data))
     socketio.emit('send:message', data, broadcast=True, include_self = False)
    
-@socketio.on('connect', namespace='/')
-def test_connect():
-    socketio.emit('user:join', {'users': 'Sammy CAT'})
-
+@socketio.on('google:athenticate', namespace='/')
+def test_connect(data):
+    socketio.emit('user:join', {'users': data})
+    
+    global name
+    name = data['name']
+    
+    global image
+    image = data['picture']['data']['url']
+    
 @socketio.on('disconnect', namespace='/')
 def test_disconnect():
-    socketio.emit('user:left', {'users': 'bob'})
-
+    socketio.emit('user:left', {'users': name})
 socketio.run(
     app,
     host=os.getenv('IP', '0.0.0.0'),

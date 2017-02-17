@@ -28,8 +28,9 @@ var Message = React.createClass({
 	render() {
 		return (
 			<div className="message">
+			<img src={this.props.image} />
 				<strong>{this.props.user} :</strong> 
-				<span>{this.props.text}</span>		
+				<div><p>{this.props.text}</p></div>		
 			</div>
 		);
 	}
@@ -55,6 +56,7 @@ var MessageList = React.createClass({
 						return (
 							<Message
 								key={i}
+								image={message.image}
 								user={message.user}
 								text={message.text} 
 							/>
@@ -75,9 +77,10 @@ var MessageForm = React.createClass({
 	handleSubmit(e) {
 		e.preventDefault();
 		var message = {
+			image :this.props.image, 
 			user : this.props.user,
 			text : this.state.text
-		}
+		};
 		this.props.onMessageSubmit(message);	
 		this.setState({ text: '' });
 	},
@@ -103,19 +106,26 @@ var MessageForm = React.createClass({
 
 const responseGoogle = (response) => {
   console.log(response);
-  alert(response);
+  alert(response['picture']['data']['url']);
+  
+  if(!response){
+  	  Socket.emit('google:athenticate', response);
+  }
 };
 
  
 const responseFacebook = (response) => {
   console.log(response);
-  alert(response);
+ // alert(response['picture']['data']['url']);
+    if(response['picture']['data']['url'] != ""){
+  	  Socket.emit('google:athenticate', response);
+  }
 };
 
 var ChatApp = React.createClass({
 
 	getInitialState() {
-		return {users: [], messages:[], text: ''};
+		return {image: [], users: [], messages:[], text: ''};
 	},
 
 	componentDidMount() {
@@ -137,14 +147,17 @@ var ChatApp = React.createClass({
 	},
 	_userJoined(data) {
 		var {users, messages} = this.state;
-		var name = data['users'];
-		
+		var the_name = data['users'];
+		var name = the_name['name'];
+		var the_image = data['users'];
+		var image = the_image['picture']['data']['url'];
+		console.log(image);
 		users.push(name);
 		messages.push({
 			user: 'APPLICATION BOT',
 			text : name +' Joined'
 		});
-		this.setState({users, messages});
+		this.setState({image, name, users, messages});
 	},
 
 	_userLeft(data) {
@@ -181,29 +194,34 @@ var ChatApp = React.createClass({
 				    autoLoad={true}
 				    fields="name,email,picture"
 				    callback={responseFacebook}
-				
-				    />
+				/>
 			   <UserCount
 					users={this.state.users}
 				/>
 				<UsersList
 					users={this.state.users}
 				/>
-				<MessageList
-					messages={this.state.messages}
-				/>
-				{console.log(this.state.user)}
+				<div id="device">
+				<div className="chat">
+				   <MessageList
+					   messages={this.state.messages}
+				   />
+				</div>
 				<MessageForm
 					onMessageSubmit={this.handleMessageSubmit}
-					user={"sam"}
+					user={this.state.name}
+					image={this.state.image}
 				/>
+				</div>
+			{console.log(this.state.image)}
+
 			</div>
 		);
 	}
 });
 
 Socket.on('connect', function() {
-    console.log('Connecting to the server!');
+  //  console.log('Connecting to the server!');
 });
 
 export default ChatApp;
