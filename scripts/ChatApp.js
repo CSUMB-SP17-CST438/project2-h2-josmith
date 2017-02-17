@@ -183,7 +183,8 @@ var ChatApp = React.createClass({
 	render() {
 		return (
 			<div>
-			  <GoogleLogin
+			<div className="social">
+			<GoogleLogin
 			    clientId="339887222847-7237f4eqsp22ddnj9h44chgbnoq1s8mk.apps.googleusercontent.com"
 			    buttonText="Login"
 			    onSuccess={responseGoogle}
@@ -195,13 +196,16 @@ var ChatApp = React.createClass({
 				    fields="name,email,picture"
 				    callback={responseFacebook}
 				/>
-			   <UserCount
-					users={this.state.users}
-				/>
-				<UsersList
-					users={this.state.users}
-				/>
-				<div id="device">
+				</div>
+				<div >
+				   <UserCount
+						users={this.state.users}
+					/>
+					<UsersList
+						users={this.state.users}
+					/>
+				</div>
+				<div id="device" className="user-stat">
 				<div className="chat">
 				   <MessageList
 					   messages={this.state.messages}
@@ -213,6 +217,7 @@ var ChatApp = React.createClass({
 					image={this.state.image}
 				/>
 				</div>
+
 			{console.log(this.state.image)}
 
 			</div>

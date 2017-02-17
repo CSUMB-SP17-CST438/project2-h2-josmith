@@ -13324,27 +13324,35 @@ var ChatApp = React.createClass({
 		return React.createElement(
 			'div',
 			null,
-			React.createElement(_reactGoogleLogin2.default, {
-				clientId: '339887222847-7237f4eqsp22ddnj9h44chgbnoq1s8mk.apps.googleusercontent.com',
-				buttonText: 'Login',
-				onSuccess: responseGoogle,
-				onFailure: responseGoogle
-			}),
-			React.createElement(_reactFacebookLogin2.default, {
-				appId: '252733528514405',
-				autoLoad: true,
-				fields: 'name,email,picture',
-				callback: responseFacebook
-			}),
-			React.createElement(UserCount, {
-				users: this.state.users
-			}),
-			React.createElement(UsersList, {
-				users: this.state.users
-			}),
 			React.createElement(
 				'div',
-				{ id: 'device' },
+				{ className: 'social' },
+				React.createElement(_reactGoogleLogin2.default, {
+					clientId: '339887222847-7237f4eqsp22ddnj9h44chgbnoq1s8mk.apps.googleusercontent.com',
+					buttonText: 'Login',
+					onSuccess: responseGoogle,
+					onFailure: responseGoogle
+				}),
+				React.createElement(_reactFacebookLogin2.default, {
+					appId: '252733528514405',
+					autoLoad: true,
+					fields: 'name,email,picture',
+					callback: responseFacebook
+				})
+			),
+			React.createElement(
+				'div',
+				null,
+				React.createElement(UserCount, {
+					users: this.state.users
+				}),
+				React.createElement(UsersList, {
+					users: this.state.users
+				})
+			),
+			React.createElement(
+				'div',
+				{ id: 'device', className: 'user-stat' },
 				React.createElement(
 					'div',
 					{ className: 'chat' },
