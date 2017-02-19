@@ -13291,25 +13291,19 @@ var ChatApp = React.createClass({
 		    messages = _state.messages,
 		    images = _state.images;
 
-		var name2 = '';
-		var image2 = '';
 		var the_name = data['fb'];
 		var name = the_name['name'];
 		var the_image = data['fb'];
 		var image = the_image['picture']['data']['url'];
 
 		users.push(name);
-		if (users.length > 1) {
-			name2 = name;
-			image2 = image;
-		}
 		images.push(image);
 		messages.push({
 			user: 'APPLICATION BOT',
 			text: name + ' Joined'
 		});
 		console.log(this.state);
-		this.setState({ name2: name2, image2: image2, images: images, users: users, messages: messages });
+		this.setState({ images: images, users: users, messages: messages });
 	},
 	_userJoinedG: function _userJoinedG(data) {
 		var _state2 = this.state,
@@ -13322,22 +13316,15 @@ var ChatApp = React.createClass({
 		var the_image = data['g'];
 		var image = the_image['imageUrl'];
 
-		var name2 = '';
-		var image2 = '';
-
-		if (users.length > 1) {
-			name2 = name;
-			image2 = image;
-		}
-
 		users.push(name);
 		images.push(image);
 		messages.push({
-			user: 'APPLICATION BOT',
+			image: 'http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/matte-white-square-icons-business/124810-matte-white-square-icon-business-robot.png',
+			user: '',
 			text: name + ' Joined'
 		});
 		console.log(this.state);
-		this.setState({ name2: name2, image2: image2, images: images, users: users, messages: messages });
+		this.setState({ images: images, users: users, messages: messages });
 	},
 	handleMessageSubmit: function handleMessageSubmit(message) {
 		var messages = this.state.messages;
@@ -13373,8 +13360,8 @@ var ChatApp = React.createClass({
 				),
 				React.createElement(MessageForm, {
 					onMessageSubmit: this.handleMessageSubmit,
-					user: this.state.name2,
-					image: this.state.images[this.state.image2]
+					user: this.state.users[this.state.users.length - 1],
+					image: this.state.images[this.state.images.length - 1]
 				})
 			)
 		);

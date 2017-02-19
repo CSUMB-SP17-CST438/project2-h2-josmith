@@ -124,6 +124,7 @@ const responseFacebook = (response) => {
 };
 
 
+
 var MessageForm = React.createClass({
 
 	getInitialState() {
@@ -187,25 +188,19 @@ var ChatApp = React.createClass({
 	},
 	_userJoinedFB(data) {
 		var {users, messages, images} = this.state;
-		var name2 = '';
-		var image2 = '';
 		var the_name = data['fb'];
 		var name = the_name['name'];
 		var the_image = data['fb'];
 		var image = the_image['picture']['data']['url'];
-        
+
 		users.push(name);
-		if(users.length > 1){
-			name2 = name;
-			image2 = image;
-		}
 		images.push(image);
 		messages.push({
 			user: 'APPLICATION BOT',
 			text : name +' Joined'
 		});
 		console.log(this.state);
-		this.setState({name2, image2, images, users, messages});
+		this.setState({images, users, messages});
 	},
 		_userJoinedG(data) {
 		var {users, messages, images} = this.state;
@@ -213,23 +208,16 @@ var ChatApp = React.createClass({
 		var name = the_name['name'];
 		var the_image = data['g'];
 		var image = the_image['imageUrl'];
-		
-		var name2 = '';
-		var image2 = '';
 
-		if(users.length > 1){
-			name2 = name;
-			image2 = image;
-		}
-		
 		users.push(name);
 		images.push(image);
 		messages.push({
-			user: 'APPLICATION BOT',
+			image: 'http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/matte-white-square-icons-business/124810-matte-white-square-icon-business-robot.png',
+			user: '',
 			text : name +' Joined'
 		});
 		console.log(this.state);
-		this.setState({name2, image2, images, users, messages});
+		this.setState({images, users, messages});
 		
 	},
 
@@ -262,8 +250,8 @@ var ChatApp = React.createClass({
 				</div>
 				<MessageForm
 					onMessageSubmit={this.handleMessageSubmit}
-					user={this.state.name2}
-					image={this.state.images[this.state.image2]}
+					user={this.state.users[this.state.users.length - 1]}
+					image={this.state.images[this.state.images.length - 1]}
 				/>
 			    
 				</div>

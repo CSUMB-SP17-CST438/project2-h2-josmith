@@ -34,7 +34,6 @@ def test_connect_google(data):
 
 @socketio.on('send:message')
 def handle_my_custom_event(data):
-    print('received json: ' + json.dumps(data))
     socketio.emit('send:message', data, broadcast=True, include_self = False)
    
 
