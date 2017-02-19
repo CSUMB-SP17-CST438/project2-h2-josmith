@@ -20,7 +20,7 @@ def on_connect():
 @socketio.on('send:message')
 def handle_my_custom_event(data):
     print('received json: ' + json.dumps(data))
-    socketio.emit('send:message', data, broadcast=True, include_self = False)
+    socketio.emit('send:message', data, broadcast=False, include_self = False)
    
 @socketio.on('facebook:athenticate', namespace='/')
 def test_connect_facebook(data):
@@ -36,9 +36,7 @@ def test_connect_google(data):
     socketio.emit('user:joinG', {'g': data['profileObj']}, broadcast=False)
 
 
-@socketio.on('disconnect', namespace='/')
-def test_disconnect():
-    socketio.emit('user:left', {'users': 'hi'})
+
 
 
 socketio.run(

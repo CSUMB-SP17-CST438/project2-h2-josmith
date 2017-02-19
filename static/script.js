@@ -13305,7 +13305,7 @@ var ChatApp = React.createClass({
 			text: name + ' Joined'
 		});
 		console.log(this.state.image);
-		//	this.setState({images, users, messages});
+		this.setState({ images: images, users: users, messages: messages });
 	},
 	_userJoinedG: function _userJoinedG(data) {
 		var _state2 = this.state,
