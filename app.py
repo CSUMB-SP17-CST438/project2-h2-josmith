@@ -13,14 +13,19 @@ socketio = flask_socketio.SocketIO(app)
 @app.route('/')
 def hello():
    return flask.render_template('index.html')
+   
 @socketio.on('connect')
 def on_connect():
    print 'Someone connected!------------------------------------'
    
-
+@socketio.on('send:message')
+def handle_my_custom_event(data):
+    print('received json: ' + json.dumps(data))
+    socketio.send( data)
+   
 @socketio.on('facebook:athenticate', namespace='/')
 def test_connect_facebook(data):
-    socketio.emit('user:joinFB', {'fb': data}, broadcast=False)
+    socketio.emit('user:joinFB', {'fb': data})
     # global name
     # name = data['name']
     
@@ -29,13 +34,8 @@ def test_connect_facebook(data):
     
 @socketio.on('google:athenticate', namespace='/')
 def test_connect_google(data):
-    socketio.emit('user:joinG', {'g': data['profileObj']}, broadcast=False)
+    socketio.emit('user:joinG', {'g': data['profileObj']})
 
-
-@socketio.on('send:message')
-def handle_my_custom_event(data):
-    socketio.emit('send:message', data, broadcast=True, include_self = False)
-   
 
 
 socketio.run(

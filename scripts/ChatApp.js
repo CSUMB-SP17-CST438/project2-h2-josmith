@@ -1,38 +1,51 @@
+
 import * as React from 'react';
 import { Socket } from './Socket';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
+import ToggleDisplay from 'react-toggle-display';
+
+
 
 var Social = React.createClass({
-	getInitialState() {
-		return {showResults: true};
-	},
-
-	handleSubmit(e) {
-		e.preventDefault();
-		this.setState({ showResults: false });
-	},
+  
+    getInitialState: function() {
+        return {
+            show: true
+        };
+    },
+    
+    handleClick: function() {
+        this.setState({ show: !this.state.show });
+    },
     
     render: function() {
     	
         return (
-            	<div className="social" onClick={this.Social}>
-			<GoogleLogin
-			    clientId="339887222847-7237f4eqsp22ddnj9h44chgbnoq1s8mk.apps.googleusercontent.com"
-			    buttonText="Login"
-			    scope="profile email"
-			    onSuccess={responseGoogle}
-			    onFailure={responseGoogle}
-			  />
-			    <FacebookLogin
-				    appId="252733528514405"
-				    autoLoad={false}
-				    fields="name,email,picture"
-				    callback={responseFacebook}
-				/>
+        	
+        <div className="social">
+            <ToggleDisplay show={this.state.show}>
+               <div onClick={ this.handleClick }>
+			      <GoogleLogin
+			          clientId="339887222847-7237f4eqsp22ddnj9h44chgbnoq1s8mk.apps.googleusercontent.com"
+			          buttonText="Login"
+			          scope="profile email"
+			          onSuccess={responseGoogle}
+			          onFailure={responseGoogle}
+			     />
+			  </div>
+			  <div onClick={ this.handleClick }>
+			     <FacebookLogin  show={this.state.show}
+				     appId="252733528514405"
+				     autoLoad={false}
+				     fields="name,email,picture"
+				     callback={responseFacebook}
+				 />
 				</div>
-			
-    )}
+		    </ToggleDisplay>
+		</div>
+        );
+    }
 });
 
 
@@ -104,6 +117,7 @@ var MessageList = React.createClass({
 });
 
 const responseGoogle = (response) => {
+  console.log(response['profileObj']);
 
   //response['picture']['data']['url'];
   //response['name'];
@@ -113,16 +127,14 @@ const responseGoogle = (response) => {
   }
 };
 
-
 const responseFacebook = (response) => {
-
+  console.log(response);
  // alert(response['picture']['data']['url']);
     if(response['picture']['data']['url'] != ""){
   	  Socket.emit('facebook:athenticate', response);
   	  
   }
 };
-
 
 
 var MessageForm = React.createClass({
@@ -174,6 +186,7 @@ var ChatApp = React.createClass({
 		Socket.on('send:message', this._messageRecieve);
 		Socket.on('user:joinFB', this._userJoinedFB);
 		Socket.on('user:joinG', this._userJoinedG);
+		Socket.on('user:left', this._userLeft);
 	},
 
 	_initialize(data) {
@@ -192,14 +205,14 @@ var ChatApp = React.createClass({
 		var name = the_name['name'];
 		var the_image = data['fb'];
 		var image = the_image['picture']['data']['url'];
-
+	//	console.log(image);
 		users.push(name);
 		images.push(image);
 		messages.push({
 			user: 'APPLICATION BOT',
 			text : name +' Joined'
 		});
-		console.log(this.state);
+		console.log(this.state.image);
 		this.setState({images, users, messages});
 	},
 		_userJoinedG(data) {
@@ -208,18 +221,18 @@ var ChatApp = React.createClass({
 		var name = the_name['name'];
 		var the_image = data['g'];
 		var image = the_image['imageUrl'];
-
+		console.log(image);
 		users.push(name);
 		images.push(image);
 		messages.push({
 			image: 'http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/matte-white-square-icons-business/124810-matte-white-square-icon-business-robot.png',
-			user: '',
+			user: 'APPLICATION BOT',
 			text : name +' Joined'
 		});
-		console.log(this.state);
+		console.log(this.state.image);
 		this.setState({images, users, messages});
-		
 	},
+
 
 
 	handleMessageSubmit(message) {
