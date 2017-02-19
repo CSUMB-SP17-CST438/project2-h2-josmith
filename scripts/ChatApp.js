@@ -68,6 +68,25 @@ var MessageList = React.createClass({
 	}
 });
 
+const responseGoogle = (response) => {
+  console.log(response['profileObj']);
+
+  //response['picture']['data']['url'];
+  //response['name'];
+  
+  	  Socket.emit('google:athenticate', response['profileObj']);
+};
+
+const responseFacebook = (response) => {
+  console.log(response);
+ // alert(response['picture']['data']['url']);
+    if(response['picture']['data']['url'] != ""){
+  	  Socket.emit('facebook:athenticate', response);
+  	  
+  }
+};
+
+
 var MessageForm = React.createClass({
 
 	getInitialState() {
@@ -104,34 +123,19 @@ var MessageForm = React.createClass({
 	}
 });
 
-const responseGoogle = (response) => {
-  console.log(response);
-  alert(response['picture']['data']['url']);
-  
-  if(!response){
-  	  Socket.emit('google:athenticate', response);
-  }
-};
 
- 
-const responseFacebook = (response) => {
-  console.log(response);
- // alert(response['picture']['data']['url']);
-    if(response['picture']['data']['url'] != ""){
-  	  Socket.emit('google:athenticate', response);
-  }
-};
 
 var ChatApp = React.createClass({
 
 	getInitialState() {
-		return {image: [], users: [], messages:[], text: ''};
+		return {images: [], users: [], messages:[], text: ''};
 	},
 
 	componentDidMount() {
 		Socket.on('init', this._initialize);
 		Socket.on('send:message', this._messageRecieve);
-		Socket.on('user:join', this._userJoined);
+		Socket.on('user:joinFB', this._userJoinedFB);
+		Socket.on('user:joinG', this._userJoinedG);
 		Socket.on('user:left', this._userLeft);
 	},
 
@@ -145,19 +149,37 @@ var ChatApp = React.createClass({
 		messages.push(message);
 		this.setState({messages});
 	},
-	_userJoined(data) {
-		var {users, messages} = this.state;
-		var the_name = data['users'];
+	_userJoinedFB(data) {
+		var {users, messages, images} = this.state;
+		var the_name = data['fb'];
 		var name = the_name['name'];
-		var the_image = data['users'];
+		var the_image = data['fb'];
 		var image = the_image['picture']['data']['url'];
-		console.log(image);
+	//	console.log(image);
 		users.push(name);
+		images.push(image);
 		messages.push({
 			user: 'APPLICATION BOT',
 			text : name +' Joined'
 		});
-		this.setState({image, name, users, messages});
+		console.log(this.state.image);
+		this.setState({images, users, messages});
+	},
+		_userJoinedG(data) {
+		var {users, messages, images} = this.state;
+		var the_name = data['g'];
+		var name = the_name['name'];
+		var the_image = data['g'];
+		var image = the_image['imageUrl'];
+		console.log(image);
+		users.push(name);
+		images.push(image);
+		messages.push({
+			user: 'APPLICATION BOT',
+			text : name +' Joined'
+		});
+		console.log(this.state.image);
+		this.setState({images, users, messages});
 	},
 
 	_userLeft(data) {
@@ -174,7 +196,6 @@ var ChatApp = React.createClass({
 
 	handleMessageSubmit(message) {
 		var {messages} = this.state;
-		//console.log(messages);
 		messages.push(message);
 		this.setState({messages});
 		Socket.emit('send:message', message);
@@ -187,12 +208,13 @@ var ChatApp = React.createClass({
 			<GoogleLogin
 			    clientId="339887222847-7237f4eqsp22ddnj9h44chgbnoq1s8mk.apps.googleusercontent.com"
 			    buttonText="Login"
+			    scope="profile email"
 			    onSuccess={responseGoogle}
 			    onFailure={responseGoogle}
 			  />
 			    <FacebookLogin
 				    appId="252733528514405"
-				    autoLoad={true}
+				    autoLoad={false}
 				    fields="name,email,picture"
 				    callback={responseFacebook}
 				/>
@@ -213,12 +235,11 @@ var ChatApp = React.createClass({
 				</div>
 				<MessageForm
 					onMessageSubmit={this.handleMessageSubmit}
-					user={this.state.name}
-					image={this.state.image}
+					user={this.state.users[0]}
+					image={this.state.images[0]}
 				/>
+			    
 				</div>
-
-			{console.log(this.state.image)}
 
 			</div>
 		);
