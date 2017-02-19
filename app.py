@@ -12,6 +12,8 @@ app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 
 
+
+
 @app.route('/')
 def hello():
    return render_template('index.html')
@@ -24,14 +26,10 @@ def handle_my_custom_event(data):
     print('received json: ' + json.dumps(data))
     socketio.emit('send:message', data, broadcast=True, include_self = True)
    
-@socketio.on('facebook:athenticate', namespace='/')
-def test_connect_facebook(data):
-    socketio.emit('user:joinFB', {'fb': data})
-    # global name
-    # name = data['name']
-    
-    # global image
-    # image = data['picture']['data']['url']
+# @socketio.on('facebook:athenticate', namespace='/')
+# def test_connect_facebook(data):
+#     socketio.emit('user:joinFB', {'fb': data})
+
     
 # @socketio.on('google:athenticate', namespace='/')
 # def test_connect_google(data):
