@@ -13077,58 +13077,39 @@ var _reactFacebookLogin = __webpack_require__(249);
 
 var _reactFacebookLogin2 = _interopRequireDefault(_reactFacebookLogin);
 
-var _reactToggleDisplay = __webpack_require__(264);
-
-var _reactToggleDisplay2 = _interopRequireDefault(_reactToggleDisplay);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 var Social = React.createClass({
 	displayName: 'Social',
-
-
 	getInitialState: function getInitialState() {
-		return {
-			show: true
-		};
+		return { showResults: true };
+	},
+	handleSubmit: function handleSubmit(e) {
+		e.preventDefault();
+		this.setState({ showResults: false });
 	},
 
-	handleClick: function handleClick() {
-		this.setState({ show: !this.state.show });
-	},
 
 	render: function render() {
 
 		return React.createElement(
 			'div',
-			{ className: 'social' },
-			React.createElement(
-				_reactToggleDisplay2.default,
-				{ show: this.state.show },
-				React.createElement(
-					'button',
-					{ onClick: this.handleClick },
-					React.createElement(_reactGoogleLogin2.default, {
-						clientId: '339887222847-7237f4eqsp22ddnj9h44chgbnoq1s8mk.apps.googleusercontent.com',
-						buttonText: 'Login',
-						scope: 'profile email',
-						onSuccess: responseGoogle,
-						onFailure: responseGoogle
-					})
-				),
-				React.createElement(
-					'button',
-					{ onClick: this.handleClick },
-					React.createElement(_reactFacebookLogin2.default, { show: this.state.show,
-						appId: '252733528514405',
-						autoLoad: false,
-						fields: 'name,email,picture',
-						callback: responseFacebook
-					})
-				)
-			)
+			{ className: 'social', onClick: this.Social },
+			React.createElement(_reactGoogleLogin2.default, {
+				clientId: '339887222847-7237f4eqsp22ddnj9h44chgbnoq1s8mk.apps.googleusercontent.com',
+				buttonText: 'Login',
+				scope: 'profile email',
+				onSuccess: responseGoogle,
+				onFailure: responseGoogle
+			}),
+			React.createElement(_reactFacebookLogin2.default, {
+				appId: '252733528514405',
+				autoLoad: false,
+				fields: 'name,email,picture',
+				callback: responseFacebook
+			})
 		);
 	}
 });
@@ -34389,111 +34370,6 @@ module.exports = __webpack_require__(252);
 
 !function(e,t){ true?module.exports=t(__webpack_require__(106)):"function"==typeof define&&define.amd?define(["react"],t):"object"==typeof exports?exports.GoogleLogin=t(require("react")):e.GoogleLogin=t(e.react)}(this,function(e){return function(e){function t(o){if(n[o])return n[o].exports;var i=n[o]={i:o,l:!1,exports:{}};return e[o].call(i.exports,i,i.exports,t),i.l=!0,i.exports}var n={};return t.m=e,t.c=n,t.i=function(e){return e},t.d=function(e,n,o){t.o(e,n)||Object.defineProperty(e,n,{configurable:!1,enumerable:!0,get:o})},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="",t(t.s=2)}([function(e,t,n){"use strict";function o(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function i(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function r(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var a=n(1),c=n.n(a),s=function(){function e(e,t){for(var n=0;n<t.length;n++){var o=t[n];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(e,o.key,o)}}return function(t,n,o){return n&&e(t.prototype,n),o&&e(t,o),t}}(),u=function(e){function t(e){o(this,t);var n=i(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e));return n.signIn=n.signIn.bind(n),n.state={disabled:!0},n}return r(t,e),s(t,[{key:"componentDidMount",value:function(){var e=this,t=this.props,n=t.clientId,o=t.scope,i=t.cookiePolicy,r=t.loginHint,a=t.hostedDomain,c=t.autoLoad,s=t.fetchBasicProfile;!function(e,t,n,o){var i=e.getElementsByTagName(t)[0],r=i,a=i;a=e.createElement(t),a.id=n,a.src="//apis.google.com/js/client:platform.js",r.parentNode.insertBefore(a,r),a.onload=o}(document,"script","google-login",function(){var t={client_id:n,cookiepolicy:i,login_hint:r,hosted_domain:a,fetch_basic_profile:s,scope:o};window.gapi.load("auth2",function(){e.setState({disabled:!1}),window.gapi.auth2.getAuthInstance()||window.gapi.auth2.init(t),c&&e.signIn()})})}},{key:"signIn",value:function(){var e=this;this.state.disabled||!function(){var t=window.gapi.auth2.getAuthInstance(),n=e.props,o=n.offline,i=n.redirectUri,r=n.onSuccess,a=n.onRequest,c=n.fetchBasicProfile,s=n.onFailure,u=n.prompt,l={redirect_uri:i,fetch_basic_profile:c,prompt:u};a(),o?t.grantOfflineAccess(l).then(function(e){return r(e)},function(e){return s(e)}):t.signIn(l).then(function(e){var t=e.getBasicProfile(),n=e.getAuthResponse();e.googleId=t.getId(),e.tokenObj=n,e.tokenId=n.id_token,e.accessToken=n.access_token,e.profileObj={googleId:t.getId(),imageUrl:t.getImageUrl(),email:t.getEmail(),name:t.getName(),givenName:t.getGivenName(),familyName:t.getFamilyName()},r(e)},function(e){return s(e)})}()}},{key:"render",value:function(){var e=this.props,t=e.tag,n=e.style,o=e.className,i=e.disabledStyle,r=e.buttonText,a=e.children,s=this.state.disabled||this.props.disabled,u={display:"inline-block",background:"#d14836",color:"#fff",width:190,paddingTop:10,paddingBottom:10,borderRadius:2,border:"1px solid transparent",fontSize:16,fontWeight:"bold",fontFamily:"Roboto"},l=function(){return n?n:o&&!n?{}:u}(),f=function(){return s?Object.assign({},l,i):l}(),p=c.a.createElement(t,{onClick:this.signIn,style:f,disabled:s,className:o},a?a:r);return p}}]),t}(a.Component);u.defaultProps={tag:"button",buttonText:"Login with Google",scope:"profile email",redirectUri:"postmessage",prompt:"",cookiePolicy:"single_host_origin",fetchBasicProfile:!0,disabledStyle:{opacity:.6},onRequest:function(){},offline:!1},t.default=u},function(t,n){t.exports=e},function(e,t,n){e.exports=n(0)}])});
 //# sourceMappingURL=google-login.js.map
-
-/***/ }),
-/* 264 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
-	if (true) {
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(106)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	} else if (typeof exports !== "undefined") {
-		factory(exports, require('react'));
-	} else {
-		var mod = {
-			exports: {}
-		};
-		factory(mod.exports, global.React);
-		global.ToggleDisplay = mod.exports;
-	}
-})(this, function (exports, _react) {
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	exports.default = ToggleDisplay;
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : {
-			default: obj
-		};
-	}
-
-	var _extends = Object.assign || function (target) {
-		for (var i = 1; i < arguments.length; i++) {
-			var source = arguments[i];
-
-			for (var key in source) {
-				if (Object.prototype.hasOwnProperty.call(source, key)) {
-					target[key] = source[key];
-				}
-			}
-		}
-
-		return target;
-	};
-
-	ToggleDisplay.propTypes = {
-		tag: _react2.default.PropTypes.string,
-		hide: _react2.default.PropTypes.bool,
-		show: _react2.default.PropTypes.bool,
-		if: _react2.default.PropTypes.bool
-	};
-
-	ToggleDisplay.defaultProps = {
-		tag: 'span'
-	};
-
-	var propsToRemove = Object.keys(ToggleDisplay.propTypes);
-
-	function isDefined(val) {
-		return val != null;
-	}
-
-	function shouldHide(props) {
-		if (isDefined(props.show)) {
-			return !props.show;
-		} else if (isDefined(props.hide)) {
-			return props.hide;
-		}
-		return false;
-	}
-
-	function pickProps(props) {
-		var newProps = Object.assign({}, props);
-		propsToRemove.forEach(function (prop) {
-			if (prop in newProps) {
-				delete newProps[prop];
-			}
-		});
-		return newProps;
-	}
-
-	function ToggleDisplay(props) {
-		if (props.if === false) {
-			return _react2.default.createElement('noscript', null);
-			// return null // this used to work, now have to manually return <noscript>
-		}
-
-		var style = {};
-		if (shouldHide(props)) {
-			style.display = 'none';
-		}
-
-		var Tag = props.tag;
-		// prevent our props from being leaked down onto the children
-		var newProps = pickProps(props);
-
-		return _react2.default.createElement(Tag, _extends({ style: style }, newProps));
-	}
-});
-
 
 /***/ })
 /******/ ]);

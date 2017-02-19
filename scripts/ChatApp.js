@@ -2,49 +2,37 @@ import * as React from 'react';
 import { Socket } from './Socket';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
-import ToggleDisplay from 'react-toggle-display';
-
-
 
 var Social = React.createClass({
-  
-    getInitialState: function() {
-        return {
-            show: true
-        };
-    },
-    
-    handleClick: function() {
-        this.setState({ show: !this.state.show });
-    },
+	getInitialState() {
+		return {showResults: true};
+	},
+
+	handleSubmit(e) {
+		e.preventDefault();
+		this.setState({ showResults: false });
+	},
     
     render: function() {
     	
         return (
-        	
-        <div className="social">
-            <ToggleDisplay show={this.state.show}>
-               <button onClick={ this.handleClick }>
-			      <GoogleLogin
-			          clientId="339887222847-7237f4eqsp22ddnj9h44chgbnoq1s8mk.apps.googleusercontent.com"
-			          buttonText="Login"
-			          scope="profile email"
-			          onSuccess={responseGoogle}
-			          onFailure={responseGoogle}
-			     />
-			  </button>
-			  <button onClick={ this.handleClick }>
-			     <FacebookLogin  show={this.state.show}
-				     appId="252733528514405"
-				     autoLoad={false}
-				     fields="name,email,picture"
-				     callback={responseFacebook}
-				 />
-				</button>
-		    </ToggleDisplay>
-		</div>
-        );
-    }
+            	<div className="social" onClick={this.Social}>
+			<GoogleLogin
+			    clientId="339887222847-7237f4eqsp22ddnj9h44chgbnoq1s8mk.apps.googleusercontent.com"
+			    buttonText="Login"
+			    scope="profile email"
+			    onSuccess={responseGoogle}
+			    onFailure={responseGoogle}
+			  />
+			    <FacebookLogin
+				    appId="252733528514405"
+				    autoLoad={false}
+				    fields="name,email,picture"
+				    callback={responseFacebook}
+				/>
+				</div>
+			
+    )}
 });
 
 

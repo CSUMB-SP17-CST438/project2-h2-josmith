@@ -36,9 +36,6 @@ def test_connect_google(data):
     socketio.emit('user:joinG', {'g': data['profileObj']})
 
 
-# @socketio.on('disconnect', namespace='/')
-# def test_disconnect():
-#     socketio.emit('user:left', {'users': 'h'})
 
 
 socketio.run(
