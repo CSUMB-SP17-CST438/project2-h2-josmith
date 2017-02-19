@@ -104,7 +104,6 @@ var MessageList = React.createClass({
 });
 
 const responseGoogle = (response) => {
-  console.log(response['profileObj']);
 
   //response['picture']['data']['url'];
   //response['name'];
@@ -114,8 +113,9 @@ const responseGoogle = (response) => {
   }
 };
 
+
 const responseFacebook = (response) => {
-  console.log(response);
+
  // alert(response['picture']['data']['url']);
     if(response['picture']['data']['url'] != ""){
   	  Socket.emit('facebook:athenticate', response);
@@ -173,7 +173,6 @@ var ChatApp = React.createClass({
 		Socket.on('send:message', this._messageRecieve);
 		Socket.on('user:joinFB', this._userJoinedFB);
 		Socket.on('user:joinG', this._userJoinedG);
-		Socket.on('user:left', this._userLeft);
 	},
 
 	_initialize(data) {
@@ -188,19 +187,25 @@ var ChatApp = React.createClass({
 	},
 	_userJoinedFB(data) {
 		var {users, messages, images} = this.state;
+		var name2 = '';
+		var image2 = '';
 		var the_name = data['fb'];
 		var name = the_name['name'];
 		var the_image = data['fb'];
 		var image = the_image['picture']['data']['url'];
-	//	console.log(image);
+        
 		users.push(name);
+		if(users.length > 1){
+			name2 = name;
+			image2 = image;
+		}
 		images.push(image);
 		messages.push({
 			user: 'APPLICATION BOT',
 			text : name +' Joined'
 		});
-		console.log(this.state.image);
-		this.setState({images, users, messages});
+		console.log(this.state);
+		this.setState({name2, image2, images, users, messages});
 	},
 		_userJoinedG(data) {
 		var {users, messages, images} = this.state;
@@ -208,28 +213,26 @@ var ChatApp = React.createClass({
 		var name = the_name['name'];
 		var the_image = data['g'];
 		var image = the_image['imageUrl'];
-		console.log(image);
+		
+		var name2 = '';
+		var image2 = '';
+
+		if(users.length > 1){
+			name2 = name;
+			image2 = image;
+		}
+		
 		users.push(name);
 		images.push(image);
 		messages.push({
 			user: 'APPLICATION BOT',
 			text : name +' Joined'
 		});
-		console.log(this.state.image);
-		this.setState({images, users, messages});
+		console.log(this.state);
+		this.setState({name2, image2, images, users, messages});
+		
 	},
 
-	_userLeft(data) {
-		var {users, messages} = this.state;
-		var name = data['users'];
-		var index = users.indexOf(name);
-		users.splice(index, 1);
-		messages.push({
-			user: 'APPLICATION BOT',
-			text : name +' Left'
-		});
-		this.setState({users, messages});
-	},
 
 	handleMessageSubmit(message) {
 		var {messages} = this.state;
@@ -259,8 +262,8 @@ var ChatApp = React.createClass({
 				</div>
 				<MessageForm
 					onMessageSubmit={this.handleMessageSubmit}
-					user={this.state.users[this.state.users.length - 1]}
-					image={this.state.images[this.state.images.length - 1]}
+					user={this.state.name2}
+					image={this.state.images[this.state.image2]}
 				/>
 			    
 				</div>

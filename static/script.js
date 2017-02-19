@@ -13206,7 +13206,6 @@ var MessageList = React.createClass({
 });
 
 var responseGoogle = function responseGoogle(response) {
-	console.log(response['profileObj']);
 
 	//response['picture']['data']['url'];
 	//response['name'];
@@ -13217,7 +13216,7 @@ var responseGoogle = function responseGoogle(response) {
 };
 
 var responseFacebook = function responseFacebook(response) {
-	console.log(response);
+
 	// alert(response['picture']['data']['url']);
 	if (response['picture']['data']['url'] != "") {
 		_Socket.Socket.emit('facebook:athenticate', response);
@@ -13273,7 +13272,6 @@ var ChatApp = React.createClass({
 		_Socket.Socket.on('send:message', this._messageRecieve);
 		_Socket.Socket.on('user:joinFB', this._userJoinedFB);
 		_Socket.Socket.on('user:joinG', this._userJoinedG);
-		_Socket.Socket.on('user:left', this._userLeft);
 	},
 	_initialize: function _initialize(data) {
 		var users = data.users,
@@ -13293,19 +13291,25 @@ var ChatApp = React.createClass({
 		    messages = _state.messages,
 		    images = _state.images;
 
+		var name2 = '';
+		var image2 = '';
 		var the_name = data['fb'];
 		var name = the_name['name'];
 		var the_image = data['fb'];
 		var image = the_image['picture']['data']['url'];
-		//	console.log(image);
+
 		users.push(name);
+		if (users.length > 1) {
+			name2 = name;
+			image2 = image;
+		}
 		images.push(image);
 		messages.push({
 			user: 'APPLICATION BOT',
 			text: name + ' Joined'
 		});
-		console.log(this.state.image);
-		this.setState({ images: images, users: users, messages: messages });
+		console.log(this.state);
+		this.setState({ name2: name2, image2: image2, images: images, users: users, messages: messages });
 	},
 	_userJoinedG: function _userJoinedG(data) {
 		var _state2 = this.state,
@@ -13317,29 +13321,23 @@ var ChatApp = React.createClass({
 		var name = the_name['name'];
 		var the_image = data['g'];
 		var image = the_image['imageUrl'];
-		console.log(image);
+
+		var name2 = '';
+		var image2 = '';
+
+		if (users.length > 1) {
+			name2 = name;
+			image2 = image;
+		}
+
 		users.push(name);
 		images.push(image);
 		messages.push({
 			user: 'APPLICATION BOT',
 			text: name + ' Joined'
 		});
-		console.log(this.state.image);
-		this.setState({ images: images, users: users, messages: messages });
-	},
-	_userLeft: function _userLeft(data) {
-		var _state3 = this.state,
-		    users = _state3.users,
-		    messages = _state3.messages;
-
-		var name = data['users'];
-		var index = users.indexOf(name);
-		users.splice(index, 1);
-		messages.push({
-			user: 'APPLICATION BOT',
-			text: name + ' Left'
-		});
-		this.setState({ users: users, messages: messages });
+		console.log(this.state);
+		this.setState({ name2: name2, image2: image2, images: images, users: users, messages: messages });
 	},
 	handleMessageSubmit: function handleMessageSubmit(message) {
 		var messages = this.state.messages;
@@ -13375,8 +13373,8 @@ var ChatApp = React.createClass({
 				),
 				React.createElement(MessageForm, {
 					onMessageSubmit: this.handleMessageSubmit,
-					user: this.state.users[this.state.users.length - 1],
-					image: this.state.images[this.state.images.length - 1]
+					user: this.state.name2,
+					image: this.state.images[this.state.image2]
 				})
 			)
 		);
