@@ -13375,8 +13375,8 @@ var ChatApp = React.createClass({
 				),
 				React.createElement(MessageForm, {
 					onMessageSubmit: this.handleMessageSubmit,
-					user: this.state.users[this.state.users.length - 1],
-					image: this.state.images[this.state.images.length - 1]
+					user: this.state.users[this.state.users],
+					image: this.state.images[this.state.images]
 				})
 			)
 		);
