@@ -20,11 +20,11 @@ def on_connect():
 @socketio.on('send:message')
 def handle_my_custom_event(data):
     print('received json: ' + json.dumps(data))
-    socketio.emit('send:message', data, broadcast=False, include_self = False)
+    socketio.emit('send:message', data)
    
 @socketio.on('facebook:athenticate', namespace='/')
 def test_connect_facebook(data):
-    socketio.emit('user:joinFB', {'fb': data}, broadcast=False)
+    socketio.emit('user:joinFB', {'fb': data})
     # global name
     # name = data['name']
     
@@ -33,7 +33,7 @@ def test_connect_facebook(data):
     
 @socketio.on('google:athenticate', namespace='/')
 def test_connect_google(data):
-    socketio.emit('user:joinG', {'g': data['profileObj']}, broadcast=False)
+    socketio.emit('user:joinG', {'g': data['profileObj']})
 
 
 
