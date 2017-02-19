@@ -24,7 +24,7 @@ def handle_my_custom_event(data):
    
 @socketio.on('facebook:athenticate', namespace='/')
 def test_connect_facebook(data):
-    socketio.emit('user:joinFB', {'fb': data})
+    socketio.emit('user:joinFB', {'fb': data}, broadcast= False)
     # global name
     # name = data['name']
     
@@ -33,7 +33,7 @@ def test_connect_facebook(data):
     
 @socketio.on('google:athenticate', namespace='/')
 def test_connect_google(data):
-    socketio.emit('user:joinG', {'g': data['profileObj']})
+    socketio.emit('user:joinG', {'g': data['profileObj']}, broadcast= False)
 
 
 
