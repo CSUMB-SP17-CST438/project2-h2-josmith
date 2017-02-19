@@ -13081,39 +13081,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-var Social = React.createClass({
-	displayName: 'Social',
-	getInitialState: function getInitialState() {
-		return { showResults: true };
-	},
-	handleSubmit: function handleSubmit(e) {
-		e.preventDefault();
-		this.setState({ showResults: false });
-	},
-
-
-	render: function render() {
-
-		return React.createElement(
-			'div',
-			{ className: 'social', onClick: this.Social },
-			React.createElement(_reactGoogleLogin2.default, {
-				clientId: '339887222847-7237f4eqsp22ddnj9h44chgbnoq1s8mk.apps.googleusercontent.com',
-				buttonText: 'Login',
-				scope: 'profile email',
-				onSuccess: responseGoogle,
-				onFailure: responseGoogle
-			}),
-			React.createElement(_reactFacebookLogin2.default, {
-				appId: '252733528514405',
-				autoLoad: false,
-				fields: 'name,email,picture',
-				callback: responseFacebook
-			})
-		);
-	}
-});
-
 var UsersList = React.createClass({
 	displayName: 'UsersList',
 	render: function render() {
@@ -13352,7 +13319,23 @@ var ChatApp = React.createClass({
 		return React.createElement(
 			'div',
 			null,
-			React.createElement(Social, null),
+			React.createElement(
+				'div',
+				{ className: 'social' },
+				React.createElement(_reactGoogleLogin2.default, {
+					clientId: '339887222847-7237f4eqsp22ddnj9h44chgbnoq1s8mk.apps.googleusercontent.com',
+					buttonText: 'Login',
+					scope: 'profile email',
+					onSuccess: responseGoogle,
+					onFailure: responseGoogle
+				}),
+				React.createElement(_reactFacebookLogin2.default, {
+					appId: '252733528514405',
+					autoLoad: false,
+					fields: 'name,email,picture',
+					callback: responseFacebook
+				})
+			),
 			React.createElement(
 				'div',
 				null,
@@ -13375,8 +13358,8 @@ var ChatApp = React.createClass({
 				),
 				React.createElement(MessageForm, {
 					onMessageSubmit: this.handleMessageSubmit,
-					user: this.state.users[this.state.users],
-					image: this.state.images[this.state.images]
+					user: this.state.users[this.state.users.length - 1],
+					image: this.state.images[this.state.images.length - 1]
 				})
 			)
 		);
