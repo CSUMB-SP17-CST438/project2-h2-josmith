@@ -1,9 +1,42 @@
-
 import * as React from 'react';
 import { Socket } from './Socket';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
-var Global = require('react-global');
+
+var Social = React.createClass({
+	getInitialState() {
+		return {showResults: true};
+	},
+
+	handleSubmit(e) {
+		e.preventDefault();
+		this.setState({ showResults: false });
+	},
+    
+    render: function() {
+    	
+        return (
+            	<div className="social" onClick={this.Social}>
+			<GoogleLogin
+			    clientId="339887222847-7237f4eqsp22ddnj9h44chgbnoq1s8mk.apps.googleusercontent.com"
+			    buttonText="Login"
+			    scope="profile email"
+			    onSuccess={responseGoogle}
+			    onFailure={responseGoogle}
+			  />
+			    <FacebookLogin
+				    appId="252733528514405"
+				    autoLoad={false}
+				    fields="name,email,picture"
+				    callback={responseFacebook}
+				/>
+				</div>
+			
+    )}
+});
+
+
+
 
 var UsersList = React.createClass({
 	render() {
@@ -76,11 +109,6 @@ const responseGoogle = (response) => {
   //response['picture']['data']['url'];
   //response['name'];
   
-    	  <Global values={{
-  NAME: response['profileObj']['name'],
-  PIC: response['profileObj']['imageUrl']
-}} />;
-  
   if(response['profileObj']['name'] != ""){
   	  Socket.emit('google:athenticate', response);
   }
@@ -91,11 +119,6 @@ const responseFacebook = (response) => {
  // alert(response['picture']['data']['url']);
     if(response['picture']['data']['url'] != ""){
   	  Socket.emit('facebook:athenticate', response);
-  	  
-  	  <Global values={{
-  NAME: response['picture']['data']['url'],
-  PIC: response['name']
-}} />;
   	  
   }
 };
@@ -218,21 +241,8 @@ var ChatApp = React.createClass({
 	render() {
 		return (
 			<div>
-			<div className="social">
-			<GoogleLogin
-			    clientId="339887222847-7237f4eqsp22ddnj9h44chgbnoq1s8mk.apps.googleusercontent.com"
-			    buttonText="Login"
-			    scope="profile email"
-			    onSuccess={responseGoogle}
-			    onFailure={responseGoogle}
-			  />
-			    <FacebookLogin
-				    appId="252733528514405"
-				    autoLoad={false}
-				    fields="name,email,picture"
-				    callback={responseFacebook}
-				/>
-				</div>
+		
+		        <Social />
 				<div >
 				   <UserCount
 						users={this.state.users}
@@ -249,8 +259,8 @@ var ChatApp = React.createClass({
 				</div>
 				<MessageForm
 					onMessageSubmit={this.handleMessageSubmit}
-					user={Global.get('NAME')}
-					image={Global.get('PIC')}
+					user={this.state.users[this.state.users.length - 1]}
+					image={this.state.images[this.state.images.length - 1]}
 				/>
 			    
 				</div>
