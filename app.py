@@ -1,18 +1,20 @@
 import os
-import flask, flask_socketio
+from flask import Flask, render_template
+from flask_socketio import SocketIO
 
 try:
     import json
 except ImportError:
     import simplejson as json
 
-app = flask.Flask(__name__)
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'secret!'
+socketio = SocketIO(app)
 
-socketio = flask_socketio.SocketIO(app)
 
 @app.route('/')
 def hello():
-   return flask.render_template('index.html')
+   return render_template('index.html')
 @socketio.on('connect')
 def on_connect():
    print 'Someone connected!------------------------------------'
@@ -20,7 +22,7 @@ def on_connect():
 @socketio.on('send:message')
 def handle_my_custom_event(data):
     print('received json: ' + json.dumps(data))
-    socketio.emit('send:message', data, broadcast=True, include_self = False)
+    socketio.emit('send:message', data, broadcast=True, include_self = True)
    
 @socketio.on('facebook:athenticate', namespace='/')
 def test_connect_facebook(data):
@@ -31,14 +33,14 @@ def test_connect_facebook(data):
     # global image
     # image = data['picture']['data']['url']
     
-@socketio.on('google:athenticate', namespace='/')
-def test_connect_google(data):
-    socketio.emit('user:joinG', {'g': data['profileObj']})
+# @socketio.on('google:athenticate', namespace='/')
+# def test_connect_google(data):
+#     socketio.emit('user:joinG', {'g': data['profileObj']}, broadcast=True, include_self = False)
 
 
-@socketio.on('disconnect', namespace='/')
-def test_disconnect():
-    socketio.emit('user:left', {'users': 'hi'}, broadcast=True, include_self = False)
+# @socketio.on('disconnect', namespace='/')
+# def test_disconnect():
+#     socketio.emit('user:left', {'users': 'hi'}, broadcast=True, include_self = False)
 
 
 socketio.run(
