@@ -74,7 +74,9 @@ const responseGoogle = (response) => {
   //response['picture']['data']['url'];
   //response['name'];
   
-  	  Socket.emit('google:athenticate', response['profileObj']);
+  if(response['profileObj']['name'] != ""){
+  	  Socket.emit('google:athenticate', response);
+  }
 };
 
 const responseFacebook = (response) => {
@@ -235,8 +237,8 @@ var ChatApp = React.createClass({
 				</div>
 				<MessageForm
 					onMessageSubmit={this.handleMessageSubmit}
-					user={this.state.users[0]}
-					image={this.state.images[0]}
+					user={this.state.users[this.state.users.length - 1]}
+					image={this.state.images[this.state.images.length - 1]}
 				/>
 			    
 				</div>

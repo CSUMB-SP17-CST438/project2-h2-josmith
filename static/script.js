@@ -13208,7 +13208,9 @@ var responseGoogle = function responseGoogle(response) {
 	//response['picture']['data']['url'];
 	//response['name'];
 
-	_Socket.Socket.emit('google:athenticate', response['profileObj']);
+	if (response['profileObj']['name'] != "") {
+		_Socket.Socket.emit('google:athenticate', response);
+	}
 };
 
 var responseFacebook = function responseFacebook(response) {
@@ -13386,8 +13388,8 @@ var ChatApp = React.createClass({
 				),
 				React.createElement(MessageForm, {
 					onMessageSubmit: this.handleMessageSubmit,
-					user: this.state.users[0],
-					image: this.state.images[0]
+					user: this.state.users[this.state.users.length - 1],
+					image: this.state.images[this.state.images.length - 1]
 				})
 			)
 		);

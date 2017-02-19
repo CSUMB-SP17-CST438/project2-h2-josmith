@@ -25,25 +25,20 @@ def handle_my_custom_event(data):
 @socketio.on('facebook:athenticate', namespace='/')
 def test_connect_facebook(data):
     socketio.emit('user:joinFB', {'fb': data})
-    global name
-    name = data['name']
+    # global name
+    # name = data['name']
     
-    global image
-    image = data['picture']['data']['url']
+    # global image
+    # image = data['picture']['data']['url']
     
 @socketio.on('google:athenticate', namespace='/')
 def test_connect_google(data):
-    
-    socketio.emit('user:joinG', {'g': data})
-    global name
-    name = data['name']
-    
-    global image
-    image = data['picture']['data']['url']
+    socketio.emit('user:joinG', {'g': data['profileObj']})
+
 
 @socketio.on('disconnect', namespace='/')
 def test_disconnect():
-    socketio.emit('user:left', {'users': name})
+    socketio.emit('user:left', {'users': 'hi'})
 
 
 socketio.run(
