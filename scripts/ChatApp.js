@@ -121,6 +121,12 @@ const responseGoogle = (response) => {
 
   //response['picture']['data']['url'];
   //response['name'];
+  //    Socket.on('chat', function (data) {
+  //    Socket.sockets.socket(data.clientid).emit('chat', {
+  //        msg: data.msg,
+  //        senderid : Socket.id
+  //    }); 
+  //});
   
   if(response['profileObj']['name'] != ""){
   	  Socket.emit('google:athenticate', response);
@@ -172,6 +178,7 @@ var MessageForm = React.createClass({
 		);
 	}
 });
+
 
 
 
