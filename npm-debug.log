@@ -1,0 +1,542 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/ubuntu/.nvm/versions/node/v4.6.1/bin/node',
+1 verbose cli   '/home/ubuntu/.nvm/versions/node/v4.6.1/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'react-global' ]
+2 info using npm@2.15.9
+3 info using node@v4.6.1
+4 verbose install initial load of /home/ubuntu/workspace/project2-h1-josmith/package.json
+5 warn package.json @ No repository field.
+6 warn package.json @ No license field.
+7 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/after/package.json
+8 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/ansi-regex/package.json
+9 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/ansi-styles/package.json
+10 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/arraybuffer.slice/package.json
+11 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/asap/package.json
+12 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-code-frame/package.json
+13 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-core/package.json
+14 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-generator/package.json
+15 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-helper-builder-react-jsx/package.json
+16 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-helper-call-delegate/package.json
+17 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-helper-define-map/package.json
+18 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-helper-function-name/package.json
+19 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-helper-get-function-arity/package.json
+20 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-helper-hoist-variables/package.json
+21 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-helper-optimise-call-expression/package.json
+22 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-helper-regex/package.json
+23 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-helper-replace-supers/package.json
+24 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-helpers/package.json
+25 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-loader/package.json
+26 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-messages/package.json
+27 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-check-es2015-constants/package.json
+28 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-syntax-flow/package.json
+29 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-syntax-jsx/package.json
+30 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-arrow-functions/package.json
+31 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-block-scoped-functions/package.json
+32 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-block-scoping/package.json
+33 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-classes/package.json
+34 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-computed-properties/package.json
+35 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-destructuring/package.json
+36 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-duplicate-keys/package.json
+37 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-for-of/package.json
+38 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-function-name/package.json
+39 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-literals/package.json
+40 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-modules-amd/package.json
+41 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-modules-commonjs/package.json
+42 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-modules-systemjs/package.json
+43 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-modules-umd/package.json
+44 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-object-super/package.json
+45 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-parameters/package.json
+46 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-shorthand-properties/package.json
+47 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-spread/package.json
+48 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-sticky-regex/package.json
+49 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-template-literals/package.json
+50 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-typeof-symbol/package.json
+51 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-unicode-regex/package.json
+52 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-flow-strip-types/package.json
+53 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-react-display-name/package.json
+54 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-react-jsx/package.json
+55 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-react-jsx-self/package.json
+56 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-react-jsx-source/package.json
+57 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-regenerator/package.json
+58 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-strict-mode/package.json
+59 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-preset-es2015/package.json
+60 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-preset-flow/package.json
+61 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-preset-react/package.json
+62 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-register/package.json
+63 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-runtime/package.json
+64 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-template/package.json
+65 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-traverse/package.json
+66 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-types/package.json
+67 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babylon/package.json
+68 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/backo2/package.json
+69 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/balanced-match/package.json
+70 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/base64-arraybuffer/package.json
+71 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/better-assert/package.json
+72 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/big.js/package.json
+73 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/blob/package.json
+74 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/brace-expansion/package.json
+75 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/callsite/package.json
+76 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/chalk/package.json
+77 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/commondir/package.json
+78 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/component-bind/package.json
+79 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/component-emitter/package.json
+80 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/component-inherit/package.json
+81 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/concat-map/package.json
+82 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/convert-source-map/package.json
+83 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/core-js/package.json
+84 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/debug/package.json
+85 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/detect-indent/package.json
+86 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/emojis-list/package.json
+87 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/encoding/package.json
+88 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/engine.io-client/package.json
+89 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/engine.io-parser/package.json
+90 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/escape-string-regexp/package.json
+91 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/esutils/package.json
+92 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/fbjs/package.json
+93 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/find-cache-dir/package.json
+94 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/find-up/package.json
+95 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/globals/package.json
+96 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/has-ansi/package.json
+97 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/has-binary/package.json
+98 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/has-cors/package.json
+99 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/home-or-tmp/package.json
+100 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/iconv-lite/package.json
+101 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/indexof/package.json
+102 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/invariant/package.json
+103 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/is-finite/package.json
+104 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/is-stream/package.json
+105 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/isarray/package.json
+106 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/isomorphic-fetch/package.json
+107 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/js-tokens/package.json
+108 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/jsesc/package.json
+109 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/json3/package.json
+110 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/json5/package.json
+111 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/loader-utils/package.json
+112 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/lodash/package.json
+113 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/loose-envify/package.json
+114 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/minimatch/package.json
+115 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/minimist/package.json
+116 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/mkdirp/package.json
+117 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/ms/package.json
+118 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/node-fetch/package.json
+119 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/number-is-nan/package.json
+120 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/object-assign/package.json
+121 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/object-component/package.json
+122 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/options/package.json
+123 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/os-homedir/package.json
+124 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/os-tmpdir/package.json
+125 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/parsejson/package.json
+126 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/parseqs/package.json
+127 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/parseuri/package.json
+128 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/path-exists/package.json
+129 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/path-is-absolute/package.json
+130 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/pinkie/package.json
+131 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/pinkie-promise/package.json
+132 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/pkg-dir/package.json
+133 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/private/package.json
+134 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/promise/package.json
+135 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/react/package.json
+136 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/react-dom/package.json
+137 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/react-google-login/package.json
+138 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/react-toggle-display/package.json
+139 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/regenerate/package.json
+140 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/regenerator-runtime/package.json
+141 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/regenerator-transform/package.json
+142 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/regexpu-core/package.json
+143 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/regjsgen/package.json
+144 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/regjsparser/package.json
+145 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/repeating/package.json
+146 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/setimmediate/package.json
+147 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/slash/package.json
+148 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/socket.io-client/package.json
+149 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/socket.io-parser/package.json
+150 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/source-map/package.json
+151 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/source-map-support/package.json
+152 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/strip-ansi/package.json
+153 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/supports-color/package.json
+154 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/to-array/package.json
+155 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/to-fast-properties/package.json
+156 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/trim-right/package.json
+157 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/ua-parser-js/package.json
+158 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/ultron/package.json
+159 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/whatwg-fetch/package.json
+160 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/ws/package.json
+161 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/wtf-8/package.json
+162 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/xmlhttprequest-ssl/package.json
+163 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/yeast/package.json
+164 info package.json arraybuffer.slice@0.0.6 No license field.
+165 info package.json base64-arraybuffer@0.1.5 No license field.
+166 info package.json better-assert@1.0.2 No license field.
+167 info package.json blob@0.0.4 No license field.
+168 info package.json callsite@1.0.0 No repository field.
+169 info package.json callsite@1.0.0 No license field.
+170 info package.json component-bind@1.0.0 No license field.
+171 info package.json component-inherit@0.0.3 No license field.
+172 info package.json esutils@2.0.2 No license field.
+173 info package.json has-binary@0.1.7 No repository field.
+174 info package.json indexof@0.0.1 No repository field.
+175 info package.json indexof@0.0.1 No license field.
+176 info package.json json3@3.3.2 No license field.
+177 info package.json object-component@0.0.3 No repository field.
+178 info package.json object-component@0.0.3 No license field.
+179 info package.json options@0.0.6 No license field.
+180 info package.json regenerator-transform@0.9.8 license should be a valid SPDX license expression
+181 info package.json regjsparser@0.1.5 license should be a valid SPDX license expression
+182 info package.json to-array@0.1.4 No license field.
+183 info package.json xmlhttprequest-ssl@1.5.3 No license field.
+184 verbose readDependencies loading dependencies from /home/ubuntu/workspace/project2-h1-josmith/package.json
+185 silly cache add args [ 'react-global', null ]
+186 verbose cache add spec react-global
+187 silly cache add parsed spec Result {
+187 silly cache add   raw: 'react-global',
+187 silly cache add   scope: null,
+187 silly cache add   name: 'react-global',
+187 silly cache add   rawSpec: '',
+187 silly cache add   spec: 'latest',
+187 silly cache add   type: 'tag' }
+188 silly addNamed react-global@latest
+189 verbose addNamed "latest" is being treated as a dist-tag for react-global
+190 info addNameTag [ 'react-global', 'latest' ]
+191 silly mapToRegistry name react-global
+192 silly mapToRegistry using default registry
+193 silly mapToRegistry registry https://registry.npmjs.org/
+194 silly mapToRegistry data Result {
+194 silly mapToRegistry   raw: 'react-global',
+194 silly mapToRegistry   scope: null,
+194 silly mapToRegistry   name: 'react-global',
+194 silly mapToRegistry   rawSpec: '',
+194 silly mapToRegistry   spec: 'latest',
+194 silly mapToRegistry   type: 'tag' }
+195 silly mapToRegistry uri https://registry.npmjs.org/react-global
+196 verbose addNameTag registry:https://registry.npmjs.org/react-global not in flight; fetching
+197 verbose request uri https://registry.npmjs.org/react-global
+198 verbose request no auth needed
+199 info attempt registry request try #1 at 6:12:34 AM
+200 verbose request id 6768631b11528c2a
+201 http request GET https://registry.npmjs.org/react-global
+202 http 200 https://registry.npmjs.org/react-global
+203 verbose headers { server: 'nginx/1.10.1',
+203 verbose headers   'content-type': 'application/json',
+203 verbose headers   'last-modified': 'Thu, 26 Feb 2015 13:28:23 GMT',
+203 verbose headers   etag: 'W/"54ef1f77-2f6c"',
+203 verbose headers   'content-encoding': 'gzip',
+203 verbose headers   'cache-control': 'max-age=300',
+203 verbose headers   'content-length': '2303',
+203 verbose headers   'accept-ranges': 'bytes',
+203 verbose headers   date: 'Sun, 19 Feb 2017 06:12:35 GMT',
+203 verbose headers   via: '1.1 varnish',
+203 verbose headers   age: '0',
+203 verbose headers   connection: 'keep-alive',
+203 verbose headers   'x-served-by': 'cache-ord1728-ORD',
+203 verbose headers   'x-cache': 'MISS',
+203 verbose headers   'x-cache-hits': '0',
+203 verbose headers   'x-timer': 'S1487484755.126759,VS0,VE120',
+203 verbose headers   vary: 'Accept-Encoding' }
+204 silly get cb [ 200,
+204 silly get   { server: 'nginx/1.10.1',
+204 silly get     'content-type': 'application/json',
+204 silly get     'last-modified': 'Thu, 26 Feb 2015 13:28:23 GMT',
+204 silly get     etag: 'W/"54ef1f77-2f6c"',
+204 silly get     'content-encoding': 'gzip',
+204 silly get     'cache-control': 'max-age=300',
+204 silly get     'content-length': '2303',
+204 silly get     'accept-ranges': 'bytes',
+204 silly get     date: 'Sun, 19 Feb 2017 06:12:35 GMT',
+204 silly get     via: '1.1 varnish',
+204 silly get     age: '0',
+204 silly get     connection: 'keep-alive',
+204 silly get     'x-served-by': 'cache-ord1728-ORD',
+204 silly get     'x-cache': 'MISS',
+204 silly get     'x-cache-hits': '0',
+204 silly get     'x-timer': 'S1487484755.126759,VS0,VE120',
+204 silly get     vary: 'Accept-Encoding' } ]
+205 verbose get saving react-global to /home/ubuntu/.npm/registry.npmjs.org/react-global/.cache.json
+206 verbose correctMkdir /home/ubuntu/.npm correctMkdir not in flight; initializing
+207 silly addNameTag next cb for react-global with tag latest
+208 silly addNamed react-global@0.1.8
+209 verbose addNamed "0.1.8" is a plain semver version for react-global
+210 silly mapToRegistry name react-global
+211 silly mapToRegistry using default registry
+212 silly mapToRegistry registry https://registry.npmjs.org/
+213 silly mapToRegistry data Result {
+213 silly mapToRegistry   raw: 'react-global',
+213 silly mapToRegistry   scope: null,
+213 silly mapToRegistry   name: 'react-global',
+213 silly mapToRegistry   rawSpec: '',
+213 silly mapToRegistry   spec: 'latest',
+213 silly mapToRegistry   type: 'tag' }
+214 silly mapToRegistry uri https://registry.npmjs.org/react-global
+215 verbose addRemoteTarball https://registry.npmjs.org/react-global/-/react-global-0.1.8.tgz not in flight; adding
+216 verbose addRemoteTarball [ 'https://registry.npmjs.org/react-global/-/react-global-0.1.8.tgz',
+216 verbose addRemoteTarball   'a3ee5a5bc5c8dc75fc36bf62baa00665cffbcdfd' ]
+217 info retry fetch attempt 1 at 6:12:35 AM
+218 info attempt registry request try #1 at 6:12:35 AM
+219 http fetch GET https://registry.npmjs.org/react-global/-/react-global-0.1.8.tgz
+220 http fetch 200 https://registry.npmjs.org/react-global/-/react-global-0.1.8.tgz
+221 silly fetchAndShaCheck shasum a3ee5a5bc5c8dc75fc36bf62baa00665cffbcdfd
+222 verbose addTmpTarball /tmp/npm-202609-3c288f32/registry.npmjs.org/react-global/-/react-global-0.1.8.tgz not in flight; adding
+223 verbose addTmpTarball already have metadata; skipping unpack for react-global@0.1.8
+224 verbose correctMkdir /home/ubuntu/.npm correctMkdir not in flight; initializing
+225 silly cache afterAdd react-global@0.1.8
+226 verbose afterAdd /home/ubuntu/.npm/react-global/0.1.8/package/package.json not in flight; writing
+227 verbose correctMkdir /home/ubuntu/.npm correctMkdir not in flight; initializing
+228 verbose afterAdd /home/ubuntu/.npm/react-global/0.1.8/package/package.json written
+229 silly install resolved [ { name: 'react-global',
+229 silly install resolved     version: '0.1.8',
+229 silly install resolved     description: 'Global variables for isomorphic React applications',
+229 silly install resolved     main: './index',
+229 silly install resolved     scripts: { test: 'echo "Error: no test specified" && exit 1' },
+229 silly install resolved     repository:
+229 silly install resolved      { type: 'git',
+229 silly install resolved        url: 'https://github.com/captivationsoftware/react-global' },
+229 silly install resolved     keywords: [ 'React', 'Constant', 'Global', 'Isomorphic' ],
+229 silly install resolved     author: { name: 'Captivation Software, c/o @theadam' },
+229 silly install resolved     license: 'MIT',
+229 silly install resolved     bugs: { url: 'https://github.com/captivationsoftware/react-global/issues' },
+229 silly install resolved     homepage: 'https://github.com/captivationsoftware/react-global',
+229 silly install resolved     peerDependencies: { react: '0.x' },
+229 silly install resolved     gitHead: 'd49cea7ee9ed8add98fc33382fd2734e11c6c036',
+229 silly install resolved     _id: 'react-global@0.1.8',
+229 silly install resolved     _shasum: 'a3ee5a5bc5c8dc75fc36bf62baa00665cffbcdfd',
+229 silly install resolved     _from: 'react-global@latest',
+229 silly install resolved     _npmVersion: '1.4.23',
+229 silly install resolved     _npmUser: { name: 'dbarbalato', email: 'dbarbalato@gmail.com' },
+229 silly install resolved     maintainers: [ [Object] ],
+229 silly install resolved     dist:
+229 silly install resolved      { shasum: 'a3ee5a5bc5c8dc75fc36bf62baa00665cffbcdfd',
+229 silly install resolved        tarball: 'https://registry.npmjs.org/react-global/-/react-global-0.1.8.tgz' },
+229 silly install resolved     directories: {},
+229 silly install resolved     _resolved: 'https://registry.npmjs.org/react-global/-/react-global-0.1.8.tgz' } ]
+230 info install react-global@0.1.8 into /home/ubuntu/workspace/project2-h1-josmith
+231 info installOne react-global@0.1.8
+232 verbose installOne of react-global to /home/ubuntu/workspace/project2-h1-josmith not in flight; installing
+233 verbose correctMkdir /home/ubuntu/.npm/_locks correctMkdir not in flight; initializing
+234 verbose lock using /home/ubuntu/.npm/_locks/react-global-8aeade475be464cb.lock for /home/ubuntu/workspace/project2-h1-josmith/node_modules/react-global
+235 silly install write writing react-global 0.1.8 to /home/ubuntu/workspace/project2-h1-josmith/node_modules/react-global
+236 verbose unbuild node_modules/react-global
+237 silly gentlyRm /home/ubuntu/workspace/project2-h1-josmith/node_modules/react-global is being purged from base /home/ubuntu/workspace/project2-h1-josmith
+238 verbose gentlyRm don't care about contents; nuking /home/ubuntu/workspace/project2-h1-josmith/node_modules/react-global
+239 verbose tar unpack /home/ubuntu/.npm/react-global/0.1.8/package.tgz
+240 verbose tar unpacking to /home/ubuntu/workspace/project2-h1-josmith/node_modules/react-global
+241 silly gentlyRm /home/ubuntu/workspace/project2-h1-josmith/node_modules/react-global is being purged
+242 verbose gentlyRm don't care about contents; nuking /home/ubuntu/workspace/project2-h1-josmith/node_modules/react-global
+243 silly gunzTarPerm modes [ '755', '644' ]
+244 silly gunzTarPerm extractEntry package.json
+245 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+246 silly gunzTarPerm extractEntry README.md
+247 silly gunzTarPerm modified mode [ 'README.md', 436, 420 ]
+248 silly gunzTarPerm extractEntry LICENSE
+249 silly gunzTarPerm modified mode [ 'LICENSE', 436, 420 ]
+250 silly gunzTarPerm extractEntry index.js
+251 silly gunzTarPerm modified mode [ 'index.js', 436, 420 ]
+252 silly gunzTarPerm extractEntry lib/global.js
+253 silly gunzTarPerm modified mode [ 'lib/global.js', 436, 420 ]
+254 verbose write writing to /home/ubuntu/workspace/project2-h1-josmith/node_modules/react-global/package.json
+255 info preinstall react-global@0.1.8
+256 verbose readDependencies loading dependencies from /home/ubuntu/workspace/project2-h1-josmith/node_modules/react-global/package.json
+257 silly prepareForInstallMany adding react@0.x from react-global peerDependencies
+258 warn peerDependencies The peer dependency react@0.x included from react-global will no
+259 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+260 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+261 verbose readDependencies loading dependencies from /home/ubuntu/workspace/project2-h1-josmith/node_modules/react-global/package.json
+262 silly install resolved []
+263 verbose about to build /home/ubuntu/workspace/project2-h1-josmith/node_modules/react-global
+264 info build /home/ubuntu/workspace/project2-h1-josmith/node_modules/react-global
+265 info linkStuff react-global@0.1.8
+266 silly linkStuff react-global@0.1.8 has /home/ubuntu/workspace/project2-h1-josmith/node_modules as its parent node_modules
+267 verbose linkBins react-global@0.1.8
+268 verbose linkMans react-global@0.1.8
+269 verbose rebuildBundles react-global@0.1.8
+270 info install react-global@0.1.8
+271 info postinstall react-global@0.1.8
+272 verbose readDependencies loading dependencies from /home/ubuntu/workspace/project2-h1-josmith/package.json
+273 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/after/package.json
+274 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/ansi-regex/package.json
+275 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/ansi-styles/package.json
+276 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/arraybuffer.slice/package.json
+277 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/asap/package.json
+278 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-code-frame/package.json
+279 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-core/package.json
+280 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-generator/package.json
+281 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-helper-builder-react-jsx/package.json
+282 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-helper-call-delegate/package.json
+283 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-helper-define-map/package.json
+284 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-helper-function-name/package.json
+285 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-helper-get-function-arity/package.json
+286 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-helper-hoist-variables/package.json
+287 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-helper-optimise-call-expression/package.json
+288 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-helper-regex/package.json
+289 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-helper-replace-supers/package.json
+290 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-helpers/package.json
+291 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-loader/package.json
+292 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-messages/package.json
+293 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-check-es2015-constants/package.json
+294 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-syntax-flow/package.json
+295 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-syntax-jsx/package.json
+296 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-arrow-functions/package.json
+297 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-block-scoped-functions/package.json
+298 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-block-scoping/package.json
+299 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-classes/package.json
+300 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-computed-properties/package.json
+301 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-destructuring/package.json
+302 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-duplicate-keys/package.json
+303 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-for-of/package.json
+304 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-function-name/package.json
+305 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-literals/package.json
+306 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-modules-amd/package.json
+307 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-modules-commonjs/package.json
+308 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-modules-systemjs/package.json
+309 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-modules-umd/package.json
+310 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-object-super/package.json
+311 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-parameters/package.json
+312 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-shorthand-properties/package.json
+313 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-spread/package.json
+314 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-sticky-regex/package.json
+315 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-template-literals/package.json
+316 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-typeof-symbol/package.json
+317 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-es2015-unicode-regex/package.json
+318 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-flow-strip-types/package.json
+319 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-react-display-name/package.json
+320 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-react-jsx/package.json
+321 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-react-jsx-self/package.json
+322 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-react-jsx-source/package.json
+323 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-regenerator/package.json
+324 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-plugin-transform-strict-mode/package.json
+325 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-preset-es2015/package.json
+326 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-preset-flow/package.json
+327 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-preset-react/package.json
+328 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-register/package.json
+329 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-runtime/package.json
+330 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-template/package.json
+331 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-traverse/package.json
+332 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babel-types/package.json
+333 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/babylon/package.json
+334 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/backo2/package.json
+335 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/balanced-match/package.json
+336 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/base64-arraybuffer/package.json
+337 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/better-assert/package.json
+338 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/big.js/package.json
+339 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/blob/package.json
+340 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/brace-expansion/package.json
+341 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/callsite/package.json
+342 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/chalk/package.json
+343 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/commondir/package.json
+344 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/component-bind/package.json
+345 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/component-emitter/package.json
+346 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/component-inherit/package.json
+347 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/concat-map/package.json
+348 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/convert-source-map/package.json
+349 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/core-js/package.json
+350 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/debug/package.json
+351 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/detect-indent/package.json
+352 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/emojis-list/package.json
+353 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/encoding/package.json
+354 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/engine.io-client/package.json
+355 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/engine.io-parser/package.json
+356 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/escape-string-regexp/package.json
+357 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/esutils/package.json
+358 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/fbjs/package.json
+359 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/find-cache-dir/package.json
+360 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/find-up/package.json
+361 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/globals/package.json
+362 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/has-ansi/package.json
+363 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/has-binary/package.json
+364 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/has-cors/package.json
+365 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/home-or-tmp/package.json
+366 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/iconv-lite/package.json
+367 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/indexof/package.json
+368 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/invariant/package.json
+369 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/is-finite/package.json
+370 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/is-stream/package.json
+371 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/isarray/package.json
+372 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/isomorphic-fetch/package.json
+373 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/js-tokens/package.json
+374 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/jsesc/package.json
+375 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/json3/package.json
+376 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/json5/package.json
+377 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/loader-utils/package.json
+378 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/lodash/package.json
+379 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/loose-envify/package.json
+380 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/minimatch/package.json
+381 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/minimist/package.json
+382 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/mkdirp/package.json
+383 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/ms/package.json
+384 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/node-fetch/package.json
+385 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/number-is-nan/package.json
+386 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/object-assign/package.json
+387 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/object-component/package.json
+388 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/options/package.json
+389 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/os-homedir/package.json
+390 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/os-tmpdir/package.json
+391 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/parsejson/package.json
+392 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/parseqs/package.json
+393 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/parseuri/package.json
+394 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/path-exists/package.json
+395 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/path-is-absolute/package.json
+396 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/pinkie/package.json
+397 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/pinkie-promise/package.json
+398 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/pkg-dir/package.json
+399 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/private/package.json
+400 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/promise/package.json
+401 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/react/package.json
+402 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/react-dom/package.json
+403 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/react-global/package.json
+404 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/react-google-login/package.json
+405 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/react-toggle-display/package.json
+406 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/regenerate/package.json
+407 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/regenerator-runtime/package.json
+408 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/regenerator-transform/package.json
+409 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/regexpu-core/package.json
+410 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/regjsgen/package.json
+411 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/regjsparser/package.json
+412 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/repeating/package.json
+413 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/setimmediate/package.json
+414 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/slash/package.json
+415 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/socket.io-client/package.json
+416 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/socket.io-parser/package.json
+417 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/source-map/package.json
+418 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/source-map-support/package.json
+419 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/strip-ansi/package.json
+420 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/supports-color/package.json
+421 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/to-array/package.json
+422 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/to-fast-properties/package.json
+423 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/trim-right/package.json
+424 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/ua-parser-js/package.json
+425 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/ultron/package.json
+426 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/whatwg-fetch/package.json
+427 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/ws/package.json
+428 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/wtf-8/package.json
+429 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/xmlhttprequest-ssl/package.json
+430 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/yeast/package.json
+431 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/.bin/babylon/package.json
+432 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/.bin/jsesc/package.json
+433 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/.bin/json5/package.json
+434 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/.bin/loose-envify/package.json
+435 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/.bin/mkdirp/package.json
+436 verbose targetResolver reading package data from /home/ubuntu/workspace/project2-h1-josmith/node_modules/.bin/regjsparser/package.json
+437 verbose already installed skipping react@0.x /home/ubuntu/workspace/project2-h1-josmith
+438 silly install resolved []
+439 verbose unlock done using /home/ubuntu/.npm/_locks/react-global-8aeade475be464cb.lock for /home/ubuntu/workspace/project2-h1-josmith/node_modules/react-global
+440 verbose validateInstall loading /home/ubuntu/workspace/project2-h1-josmith/package.json for validation
+441 verbose stack Error: The package react@15.4.2 does not satisfy its siblings' peerDependencies requirements!
+441 verbose stack     at /home/ubuntu/.nvm/versions/node/v4.6.1/lib/node_modules/npm/lib/install.js:125:32
+441 verbose stack     at /home/ubuntu/.nvm/versions/node/v4.6.1/lib/node_modules/npm/lib/install.js:268:7
+441 verbose stack     at /home/ubuntu/.nvm/versions/node/v4.6.1/lib/node_modules/npm/node_modules/read-installed/read-installed.js:142:5
+441 verbose stack     at /home/ubuntu/.nvm/versions/node/v4.6.1/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+441 verbose stack     at cb (/home/ubuntu/.nvm/versions/node/v4.6.1/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+441 verbose stack     at /home/ubuntu/.nvm/versions/node/v4.6.1/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+441 verbose stack     at cb (/home/ubuntu/.nvm/versions/node/v4.6.1/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+441 verbose stack     at /home/ubuntu/.nvm/versions/node/v4.6.1/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+441 verbose stack     at asyncMap (/home/ubuntu/.nvm/versions/node/v4.6.1/lib/node_modules/npm/node_modules/slide/lib/async-map.js:27:18)
+441 verbose stack     at next (/home/ubuntu/.nvm/versions/node/v4.6.1/lib/node_modules/npm/node_modules/read-installed/read-installed.js:234:5)
+442 verbose cwd /home/ubuntu/workspace/project2-h1-josmith
+443 error Linux 4.8.8-c9
+444 error argv "/home/ubuntu/.nvm/versions/node/v4.6.1/bin/node" "/home/ubuntu/.nvm/versions/node/v4.6.1/bin/npm" "install" "react-global"
+445 error node v4.6.1
+446 error npm  v2.15.9
+447 error code EPEERINVALID
+448 error peerinvalid The package react@15.4.2 does not satisfy its siblings' peerDependencies requirements!
+448 error peerinvalid Peer react-dom@15.4.2 wants react@^15.4.2
+448 error peerinvalid Peer react-global@0.1.8 wants react@0.x
+449 verbose exit [ 1, true ]

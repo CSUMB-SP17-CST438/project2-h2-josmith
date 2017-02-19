@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Socket } from './Socket';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
+var Global = require('react-global');
 
 var UsersList = React.createClass({
 	render() {
@@ -75,6 +76,11 @@ const responseGoogle = (response) => {
   //response['picture']['data']['url'];
   //response['name'];
   
+    	  <Global values={{
+  NAME: response['profileObj']['name'],
+  PIC: response['profileObj']['imageUrl']
+}} />;
+  
   if(response['profileObj']['name'] != ""){
   	  Socket.emit('google:athenticate', response);
   }
@@ -85,6 +91,11 @@ const responseFacebook = (response) => {
  // alert(response['picture']['data']['url']);
     if(response['picture']['data']['url'] != ""){
   	  Socket.emit('facebook:athenticate', response);
+  	  
+  	  <Global values={{
+  NAME: response['picture']['data']['url'],
+  PIC: response['name']
+}} />;
   	  
   }
 };
@@ -238,8 +249,8 @@ var ChatApp = React.createClass({
 				</div>
 				<MessageForm
 					onMessageSubmit={this.handleMessageSubmit}
-					user={this.state.users[this.state.users.length - 1]}
-					image={this.state.images[this.state.images.length - 1]}
+					user={Global.get('NAME')}
+					image={Global.get('PIC')}
 				/>
 			    
 				</div>
