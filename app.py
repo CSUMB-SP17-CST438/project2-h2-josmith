@@ -34,11 +34,11 @@ def handle_my_custom_event(data):
      socketio.sleep(seconds=0.1)
     
      the_text = json.dumps(data['text'])
-     print the_text[1:3]
+#     print the_text[1:3]
      if(the_text[1:3] == '!!'):
          if(the_text[4:len(the_text) -1] == 'about'):
              socketio.sleep(seconds=0.1)
-             socketio.emit('bot:message', data, broadcast=True, include_self=True)
+             socketio.emit('bot:message', about, broadcast=True, include_self=True)
      socketio.sleep(seconds=0.1)
      
      if request.sid in socket_ids:
