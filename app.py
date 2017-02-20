@@ -39,10 +39,10 @@ def handle_my_custom_event(data):
      the_text = json.dumps(data['text'])
 #    print the_text[1:3]
      if(the_text[1:3] == '!!'):
-         if( the_text[4:len(the_text) -1] is 'about'):
+         if( str(the_text[4:len(the_text) -1]) is 'about'):
              socketio.sleep(seconds=0.1)
              socketio.emit('bot:message', about, broadcast=True, include_self=True)
-         elif( the_text[4:len(the_text) -1] is 'help'):
+         elif( str(the_text[4:len(the_text) -1]) is 'help'):
              socketio.sleep(seconds=0.1)
              socketio.emit('bot:message', help, broadcast=True, include_self=True)
      
