@@ -42,7 +42,7 @@ def handle_my_custom_event(data):
      print the_text[5:9]
      print the_text2[1:9]
      print the_text[1:9] == "!! about"
-     print the_text[1:9] == " !! about"
+     print the_text[1:9] == "!! about"
      print the_text2[1:9] == "!! about"
      print the_text2[1:9] == "!! about"
     #  the_str = str(the_text[4:len(the_text) -1])
