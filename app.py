@@ -33,12 +33,12 @@ def on_connect():
 @socketio.on('send:message')
 def handle_my_custom_event(data):
      socketio.sleep(seconds=0.1)
-     print the_text[4:10]
+     
      if request.sid in socket_ids:
          socketio.emit('send:message', data, broadcast=True, include_self=False)
      
      the_text = json.dumps(data['text'], ensure_ascii=True)
-     
+     print the_text[4:10]
      if(the_text[1:3] == '!!'):
          if( the_text[4:len(the_text) -1] == "about"):
              socketio.sleep(seconds=0.1)
