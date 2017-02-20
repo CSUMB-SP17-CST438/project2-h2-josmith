@@ -36,7 +36,7 @@ def handle_my_custom_event(data):
      the_text = json.dumps(data['text'])
      print the_text[1:3]
      if(the_text[1:3] == '!!'):
-        print the_text[4:the_text.count()]
+        print the_text[4:len(the_text)]
      socketio.sleep(seconds=0.1)
      
      if request.sid in socket_ids:
