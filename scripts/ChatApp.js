@@ -193,6 +193,8 @@ var ChatApp = React.createClass({
 		Socket.on('send:message', this._messageRecieve);
 		Socket.on('user:joinFB', this._userJoinedFB);
 		Socket.on('user:joinG', this._userJoinedG);
+	    Socket.on('user:meFB', this._meJoinedFB);
+		Socket.on('user:meG', this._meJoinedG);
 		Socket.on('user:left', this._userLeft);
 	},
 
@@ -207,42 +209,51 @@ var ChatApp = React.createClass({
 		this.setState({messages});
 	},
 	_userJoinedFB(data) {
-		var {users, messages, images} = this.state;
+		var {users, messages} = this.state;
 		var the_name = data['fb'];
 		var name = the_name['name'];
 		var the_image = data['fb'];
 		var image = the_image['picture']['data']['url'];
-	//	console.log(image);
 		users.push(name);
-		images.push(image);
 		messages.push({
-			user: 'APPLICATION BOT',
+			user: 'Cooper BOT',
 			image: 'http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/matte-white-square-icons-business/124810-matte-white-square-icon-business-robot.png',
 			text : '\n' + name +' Joined for Facebook'
 		});
+		this.setState({users, messages});
+	},
+		_meJoinedFB(data) {
+		var {name, image} = this.state;
+		var the_name = data['fb'];
+		var name = the_name['name'];
+		var the_image = data['fb'];
+		var image = the_image['picture']['data']['url'];
+		});
 		console.log(this.state.image);
-		this.setState({images, users, messages});
+		this.setState({name, image});
 	},
 		_userJoinedG(data) {
-		var {users, messages, images} = this.state;
+		var {users, messages} = this.state;
 		var the_name = data['g'];
 		var name = the_name['name'];
 		var the_image = data['g'];
 		var image = the_image['imageUrl'];
-		console.log(image);
 		users.push(name);
-		images.push(image);
 		messages.push({
-			user: 'APPLICATION BOT',
+			user: 'Copper BOT',
 			image: 'http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/matte-white-square-icons-business/124810-matte-white-square-icon-business-robot.png',
 			text : '\n' + name +' Joined from Google'
 		});
-		console.log(this.state.image);
-		this.setState({images, users, messages});
+		this.setState({users, messages});
 	},
-
-
-
+	_meJoinedG(data) {
+		var {name, image} = this.state;
+		var the_name = data['g'];
+		var name = the_name['name'];
+		var the_image = data['g'];
+		var image = the_image['imageUrl'];
+		this.setState({name, image});
+	},
 	handleMessageSubmit(message) {
 		var {messages} = this.state;
 		messages.push(message);
@@ -271,8 +282,8 @@ var ChatApp = React.createClass({
 				</div>
 				<MessageForm
 					onMessageSubmit={this.handleMessageSubmit}
-					user={this.state.users[this.state.users.length - 1]}
-					image={this.state.images[this.state.images.length - 1]}
+					user={this.state.name}
+					image={this.state.image}
 				/>
 			    
 				</div>

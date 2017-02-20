@@ -41,12 +41,13 @@ def handle_my_custom_event(data):
     
 @socketio.on('facebook:athenticate', namespace='/')
 def test_connect_facebook(data):
-    socketio.emit('user:joinFB', {'fb': data}, room=request.sid)
-
+    socketio.emit('user:joinFB', {'fb': data}, broadcast=True, include_self=False)
+    socketio.emit('user:meFB', {'fb': data}, room=request.sid)
     
 @socketio.on('google:athenticate', namespace='/')
 def test_connect_google(data):
-    socketio.emit('user:joinG', {'g': data['profileObj']}, room=request.sid)
+    socketio.emit('user:joinG', {'g': data['profileObj']}, broadcast=True, include_self=False)
+    socketio.emit('user:meG', {'g': data['profileObj']}, room=request.sid)
     
 
 # @socketio.on('disconnect', namespace='/')
