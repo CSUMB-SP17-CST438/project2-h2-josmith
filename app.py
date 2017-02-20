@@ -36,29 +36,20 @@ def handle_my_custom_event(data):
          socketio.emit('send:message', data, broadcast=True, include_self=False)
      
 
-     the_text = json.dumps(data['text'], ensure_ascii=False)
-     the_text2 = json.dumps(data['text'], ensure_ascii=True)
+     the_text = json.dumps(data['text'], ensure_ascii=True)
 
-     print the_text[4:len(the_text)-1]
-     print the_text2[4:len(the_text2)-1]
-     print the_text[4:len(the_text)-1] == "about"
-     print the_text[4:len(the_text)-1] == "about"
-     print the_text2[4:len(the_text2)-1] == "about"
-     print the_text2[4:len(the_text2)-1] == "about"
-    #  the_str = str(the_text[4:len(the_text) -1])
-    #  print the_text[4:len(the_text) -1]
-    #  print the_text[4:len(the_text) -1] is 'about'
-    #  print the_text[4:len(the_text) -1] is str
-    #  print the_str is str
+
     
      if(the_text[1:3] == '!!'):
-         if( the_text[4:len(the_text) -1] is "about"):
+         if( the_text[4:len(the_text) -1] == "about"):
              socketio.sleep(seconds=0.1)
              socketio.emit('bot:message', about, broadcast=True, include_self=True)
-         elif( the_text[4:len(the_text) -1] is "help"):
+         elif( the_text[4:len(the_text) -1] == "help"):
              socketio.sleep(seconds=0.1)
              socketio.emit('bot:message', help, broadcast=True, include_self=True)
-     
+         else:
+             socketio.sleep(seconds=0.1)
+             socketio.emit('bot:message', dont_recon, broadcast=True, include_self=True)
 
     
 @socketio.on('facebook:athenticate', namespace='/')
