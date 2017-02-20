@@ -35,7 +35,7 @@ def handle_my_custom_event(data):
      if request.sid in socket_ids:
          socketio.emit('send:message', data, broadcast=True, include_self=False)
      
-     the_tester = json.loads(j = json.loads('{"about" : "about", "help" : "help", "dont" : "dont"}'))
+     the_tester = json.loads('{"about" : "about", "help" : "help", "dont" : "dont"}')
      the_text = json.dumps(data['text'], ensure_ascii=False)
      the_text2 = json.dumps(data['text'], ensure_ascii=True)
      the_text = json.dumps(the_tester['about'], ensure_ascii=False)
