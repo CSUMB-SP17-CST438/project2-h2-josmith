@@ -40,6 +40,7 @@ def handle_my_custom_event(data):
 #    print the_text[1:3]
      print the_text[4:len(the_text) -1]
      print the_text[4:len(the_text) -1] is 'about'
+     print the_text[4:len(the_text) -1] is str
      if(the_text[1:3] == '!!'):
          if( the_text[4:len(the_text) -1] is 'about'):
              socketio.sleep(seconds=0.1)
