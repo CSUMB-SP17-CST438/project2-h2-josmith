@@ -225,19 +225,16 @@ var ChatApp = React.createClass({
 		_meJoinedFB(data) {
 		var {name, image} = this.state;
 		var the_name = data['fb'];
-		var name = the_name['name'];
+		name = the_name['name'];
 		var the_image = data['fb'];
-		var image = the_image['picture']['data']['url'];
-		}
-		console.log(this.state.image);
+		image = the_image['picture']['data']['url'];
+		
 		this.setState({name, image});
 	},
 		_userJoinedG(data) {
 		var {users, messages} = this.state;
 		var the_name = data['g'];
 		var name = the_name['name'];
-		var the_image = data['g'];
-		var image = the_image['imageUrl'];
 		users.push(name);
 		messages.push({
 			user: 'Copper BOT',
@@ -249,9 +246,9 @@ var ChatApp = React.createClass({
 	_meJoinedG(data) {
 		var {name, image} = this.state;
 		var the_name = data['g'];
-		var name = the_name['name'];
+		name = the_name['name'];
 		var the_image = data['g'];
-		var image = the_image['imageUrl'];
+		image = the_image['imageUrl'];
 		this.setState({name, image});
 	},
 	handleMessageSubmit(message) {
