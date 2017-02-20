@@ -36,9 +36,8 @@ def handle_my_custom_event(data):
      if request.sid in socket_ids:
          socketio.emit('send:message', data, broadcast=True, include_self=False)
      
-     the_text = str(data['text'])
-     print the_text[0:2] is '!!'
-     print the_text[4:len(the_text)] is 'help'
+     the_text = json.loads(data)
+     print the_text['text']
     #  the_str = str(the_text[4:len(the_text) -1])
     #  print the_text[4:len(the_text) -1]
     #  print the_text[4:len(the_text) -1] is 'about'
