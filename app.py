@@ -271,7 +271,7 @@ def handle_my_custom_event(data):
      if request.sid in socket_ids:
          socketio.emit('send:message', data, broadcast=True, include_self=False)
      
-     the_text = json.dumps(data['text'], ensure_ascii=True)
+     the_text = json.dumps(data['text'], ensure_ascii=False)
      
      if(the_text[1:3] == '!!'):
          if( the_text[4:len(the_text) -1] == "about"):
