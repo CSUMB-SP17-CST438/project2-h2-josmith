@@ -35,8 +35,8 @@ def handle_my_custom_event(data):
      if request.sid in socket_ids:
          socketio.emit('send:message', data, broadcast=True, include_self=False)
      
-     the_text = json.dumps(data['text'], ensure_ascii=False)
-     the_text2 = json.dumps(data['text'], ensure_ascii=True)
+     the_text = str(json.dumps(data['text'], ensure_ascii=False))
+     the_text2 = str(json.dumps(data['text'], ensure_ascii=True))
      print the_text is str
      print the_text2 is str
     #  the_str = str(the_text[4:len(the_text) -1])
