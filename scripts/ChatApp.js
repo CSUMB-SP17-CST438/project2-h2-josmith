@@ -5,8 +5,6 @@ import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 import ToggleDisplay from 'react-toggle-display';
 
-
-
 var Social = React.createClass({
   
     getInitialState: function() {
@@ -14,15 +12,12 @@ var Social = React.createClass({
             show: true
         };
     },
-    
     handleClick: function() {
         this.setState({ show: !this.state.show });
     },
     
     render: function() {
-    	
         return (
-        	
         <div className="social">
             <ToggleDisplay show={this.state.show}>
                <div onClick={ this.handleClick }>
@@ -47,9 +42,6 @@ var Social = React.createClass({
         );
     }
 });
-
-
-
 
 var UsersList = React.createClass({
 	render() {
@@ -142,7 +134,6 @@ const responseFacebook = (response) => {
   }
 };
 
-
 var MessageForm = React.createClass({
 
 	getInitialState() {
@@ -179,9 +170,6 @@ var MessageForm = React.createClass({
 	}
 });
 
-
-
-
 var ChatApp = React.createClass({
 
 	getInitialState() {
@@ -212,8 +200,6 @@ var ChatApp = React.createClass({
 		var {users, messages} = this.state;
 		var the_name = data['fb'];
 		var name = the_name['name'];
-		var the_image = data['fb'];
-		var image = the_image['picture']['data']['url'];
 		users.push(name);
 		messages.push({
 			user: 'Cooper BOT',
@@ -251,6 +237,17 @@ var ChatApp = React.createClass({
 		image = the_image['imageUrl'];
 		this.setState({name, image});
 	},
+	_userLeft(data) {
+		var {users, messages} = this.state;
+		var name = data['users'];
+		var index = users.indexOf(name);
+		users.splice(index, 1);
+		messages.push({
+			user: 'APPLICATION BOT',
+			text : name +' Left'
+		});
+		this.setState({users, messages});
+	},
 	handleMessageSubmit(message) {
 		var {messages} = this.state;
 		messages.push(message);
@@ -261,7 +258,6 @@ var ChatApp = React.createClass({
 	render() {
 		return (
 			<div>
-		
 		        <Social />
 				<div >
 				   <UserCount
@@ -282,9 +278,7 @@ var ChatApp = React.createClass({
 					user={this.state.name}
 					image={this.state.image}
 				/>
-			    
 				</div>
-
 			</div>
 		);
 	}

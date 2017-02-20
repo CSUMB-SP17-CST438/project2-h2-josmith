@@ -14815,13 +14815,11 @@ var Social = React.createClass({
 			show: true
 		};
 	},
-
 	handleClick: function handleClick() {
 		this.setState({ show: !this.state.show });
 	},
 
 	render: function render() {
-
 		return React.createElement(
 			'div',
 			{ className: 'social' },
@@ -15042,8 +15040,6 @@ var ChatApp = React.createClass({
 
 		var the_name = data['fb'];
 		var name = the_name['name'];
-		var the_image = data['fb'];
-		var image = the_image['picture']['data']['url'];
 		users.push(name);
 		messages.push({
 			user: 'Cooper BOT',
@@ -15089,6 +15085,20 @@ var ChatApp = React.createClass({
 		var the_image = data['g'];
 		image = the_image['imageUrl'];
 		this.setState({ name: name, image: image });
+	},
+	_userLeft: function _userLeft(data) {
+		var _state5 = this.state,
+		    users = _state5.users,
+		    messages = _state5.messages;
+
+		var name = data['users'];
+		var index = users.indexOf(name);
+		users.splice(index, 1);
+		messages.push({
+			user: 'APPLICATION BOT',
+			text: name + ' Left'
+		});
+		this.setState({ users: users, messages: messages });
 	},
 	handleMessageSubmit: function handleMessageSubmit(message) {
 		var messages = this.state.messages;
