@@ -228,7 +228,7 @@ var ChatApp = React.createClass({
 		var name = the_name['name'];
 		var the_image = data['fb'];
 		var image = the_image['picture']['data']['url'];
-		});
+		}
 		console.log(this.state.image);
 		this.setState({name, image});
 	},
