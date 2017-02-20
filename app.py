@@ -37,8 +37,8 @@ def handle_my_custom_event(data):
          socketio.emit('send:message', data, broadcast=True, include_self=False)
      
      the_text = str(data['text'])
-     print the_text[0:2] is str
-     print the_text[4:len(the_text)] is str
+     print the_text[0:2] is '!!'
+     print the_text[4:len(the_text)] is 'help'
     #  the_str = str(the_text[4:len(the_text) -1])
     #  print the_text[4:len(the_text) -1]
     #  print the_text[4:len(the_text) -1] is 'about'
