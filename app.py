@@ -280,7 +280,7 @@ def handle_my_custom_event(data):
          elif( the_text[4:len(the_text) -1] == "help"):
              socketio.sleep(seconds=0.1)
              socketio.emit('bot:message', help, broadcast=True, include_self=True)
-         elif( the_text[4:len(the_text) -1] == "say"):
+         elif( the_text[4:7] == "say"):
              socketio.sleep(seconds=0.1)
              socketio.emit('bot:message', the_text[7:len(the_text) -1], broadcast=True, include_self=True)
          elif( the_text[4:len(the_text) -1] == "mario"):
