@@ -33,26 +33,27 @@ def on_connect():
 @socketio.on('send:message')
 def handle_my_custom_event(data):
      socketio.sleep(seconds=0.1)
+     en_blob = TextBlob('hello')
+     print en_blob.translate(to='es')
+    #  if request.sid in socket_ids:
+    #      socketio.emit('send:message', data, broadcast=True, include_self=False)
      
-     if request.sid in socket_ids:
-         socketio.emit('send:message', data, broadcast=True, include_self=False)
-     
-     the_text = json.dumps(data['text'], ensure_ascii=True)
-     #print the_text[4:10]
-     if(the_text[1:3] == '!!'):
-         if( the_text[4:len(the_text) -1] == "about"):
-             socketio.sleep(seconds=0.1)
-             socketio.emit('bot:message', about, broadcast=True, include_self=True)
-         elif( the_text[4:len(the_text) -1] == "help"):
-             socketio.sleep(seconds=0.1)
-             socketio.emit('bot:message', help, broadcast=True, include_self=True)
-         elif( the_text[4:11] == "spanish"):
-             en_blob = TextBlob(the_text[4:len(the_text) -1])
-             socketio.sleep(seconds=0.1)
-             socketio.emit('bot:message', en_blob.translate(to='es'), broadcast=True, include_self=True)
-         else:
-             socketio.sleep(seconds=0.1)
-             socketio.emit('bot:message', dont_recon, broadcast=True, include_self=True)
+    #  the_text = json.dumps(data['text'], ensure_ascii=True)
+    #  #print the_text[4:10]
+    #  if(the_text[1:3] == '!!'):
+    #      if( the_text[4:len(the_text) -1] == "about"):
+    #          socketio.sleep(seconds=0.1)
+    #          socketio.emit('bot:message', about, broadcast=True, include_self=True)
+    #      elif( the_text[4:len(the_text) -1] == "help"):
+    #          socketio.sleep(seconds=0.1)
+    #          socketio.emit('bot:message', help, broadcast=True, include_self=True)
+    #      elif( the_text[4:11] == "spanish"):
+    #          en_blob = TextBlob(the_text[4:len(the_text) -1])
+    #          socketio.sleep(seconds=0.1)
+    #          socketio.emit('bot:message', en_blob.translate(to='es'), broadcast=True, include_self=True)
+    #      else:
+    #          socketio.sleep(seconds=0.1)
+    #          socketio.emit('bot:message', dont_recon, broadcast=True, include_self=True)
 
     
 @socketio.on('facebook:athenticate', namespace='/')
