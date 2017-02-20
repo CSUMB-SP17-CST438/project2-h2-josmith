@@ -2,4 +2,4 @@ Flask
 simplejson
 flask_socketio
 TextBlob
-python textblob.download_corpora
+nltk
