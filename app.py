@@ -32,7 +32,11 @@ def on_connect():
 @socketio.on('send:message')
 def handle_my_custom_event(data):
     
-     print json.dumps(data['text'])
+     socketio.sleep(seconds=0.1)
+    
+     the_text = json.dumps(data['text'])
+     print the_text[0]
+     socketio.sleep(seconds=0.1)
      
      if request.sid in socket_ids:
         socketio.emit('send:message', data, broadcast=True, include_self=False)
