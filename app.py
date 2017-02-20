@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 from flask import Flask, render_template, request
 from flask_socketio import SocketIO
@@ -12,7 +13,7 @@ except ImportError:
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
-# -*- coding: utf-8 -*-
+
 socket_ids = {}
 about = 'This is a chat app that was build in CSUMBs software engineering class in two weeks'
 help = 'The options are help, say, spanish, and pic'
