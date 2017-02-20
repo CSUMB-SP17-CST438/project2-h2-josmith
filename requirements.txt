@@ -3,3 +3,4 @@ simplejson
 flask_socketio
 textblob
 nltk
+requests
