@@ -1,9 +1,9 @@
 import os
 from flask import Flask, render_template, request
 from flask_socketio import SocketIO
+from StringIO import StringIO
 import requests
 import random
-
 try:
     import json
 except ImportError:
@@ -30,14 +30,14 @@ def on_connect():
    
 @socketio.on('send:message')
 def handle_my_custom_event(data):
-    
+     io = StringIO()
      socketio.sleep(seconds=0.1)
      
      if request.sid in socket_ids:
          socketio.emit('send:message', data, broadcast=True, include_self=False)
      
-     the_text = json.loads(data)
-     print the_text['text']
+     the_text = json.dumps(data['text'], io)
+     print io.getvalue()
     #  the_str = str(the_text[4:len(the_text) -1])
     #  print the_text[4:len(the_text) -1]
     #  print the_text[4:len(the_text) -1] is 'about'
