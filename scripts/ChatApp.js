@@ -182,6 +182,7 @@ var ChatApp = React.createClass({
 	    Socket.on('user:meFB', this._meJoinedFB);
 		Socket.on('user:meG', this._meJoinedG);
 		Socket.on('user:left', this._userLeft);
+		Socket.on('message:bot', this._messageBot);
 	},
 
 	_initialize(data) {
@@ -246,6 +247,16 @@ var ChatApp = React.createClass({
 			text : name +' Left'
 		});
 		this.setState({users, messages});
+	},
+	_messageBot(data){
+		var {messages} = this.state;
+		var text = data;
+		messages.push({
+			user: 'Copper BOT',
+			image: 'http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/matte-white-square-icons-business/124810-matte-white-square-icon-business-robot.png',
+			text : text
+		});
+		this.setState({messages});
 	},
 	handleMessageSubmit(message) {
 		var {messages} = this.state;
