@@ -34,7 +34,7 @@ def handle_my_custom_event(data):
      socketio.sleep(seconds=0.1)
     
      the_text = json.dumps(data['text'])
-     print the_text[0]
+     print the_text[1]
      socketio.sleep(seconds=0.1)
      
      if request.sid in socket_ids:
