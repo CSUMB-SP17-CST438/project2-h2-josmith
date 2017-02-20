@@ -1,4 +1,4 @@
 Flask
 simplejson
 flask_socketio
-
+TextBlob
