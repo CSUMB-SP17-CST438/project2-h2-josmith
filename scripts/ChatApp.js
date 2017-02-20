@@ -217,7 +217,8 @@ var ChatApp = React.createClass({
 		images.push(image);
 		messages.push({
 			user: 'APPLICATION BOT',
-			text : name +' Joined'
+			image: 'http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/matte-white-square-icons-business/124810-matte-white-square-icon-business-robot.png',
+			text : '\n' + name +' Joined for Facebook'
 		});
 		console.log(this.state.image);
 		this.setState({images, users, messages});
@@ -232,9 +233,9 @@ var ChatApp = React.createClass({
 		users.push(name);
 		images.push(image);
 		messages.push({
-			image: 'http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/matte-white-square-icons-business/124810-matte-white-square-icon-business-robot.png',
 			user: 'APPLICATION BOT',
-			text : name +' Joined'
+			image: 'http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/matte-white-square-icons-business/124810-matte-white-square-icon-business-robot.png',
+			text : '\n' + name +' Joined from Google'
 		});
 		console.log(this.state.image);
 		this.setState({images, users, messages});
