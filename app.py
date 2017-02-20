@@ -46,8 +46,8 @@ def handle_my_custom_event(data):
          elif( the_text[4:len(the_text) -1] == "help"):
              socketio.sleep(seconds=0.1)
              socketio.emit('bot:message', help, broadcast=True, include_self=True)
-         elif( the_text[4:len(the_text) -1] == "spanish"):
-             en_blob = TextBlob(u'Simple is better than complex.')
+         elif( the_text[4:10] == "spanish"):
+             en_blob = TextBlob(the_text[4:len(the_text) -1])
              socketio.sleep(seconds=0.1)
              socketio.emit('bot:message', en_blob.translate(to='es'), broadcast=True, include_self=True)
          else:
