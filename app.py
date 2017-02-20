@@ -41,13 +41,10 @@ def handle_my_custom_event(data):
      the_text = json.dumps(the_tester['about'], ensure_ascii=False)
      print the_text
      print the_text2
-     print the_text[4:len(the_text) -1]
-     print the_text is the_text
-     print the_text2 is the_text2
-     print the_text[4:len(the_text) -1] == 'about'
-     print the_text[4:len(the_text) -1] == '!about'
-     print the_text2[4:len(the_text) -1] is 'about'
-     print the_text2[4:len(the_text) -1] is the_tester
+     print the_text == 'about'
+     print the_text is 'about'
+     print the_text2 == '!! about'
+     print the_text2 is '!! about'
     #  the_str = str(the_text[4:len(the_text) -1])
     #  print the_text[4:len(the_text) -1]
     #  print the_text[4:len(the_text) -1] is 'about'
