@@ -2,4 +2,4 @@ Flask
 simplejson
 flask_socketio
 TextBlob
-textblob.download_corpora
+python -m textblob.download_corpora
