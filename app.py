@@ -4,6 +4,8 @@ from flask_socketio import SocketIO
 from StringIO import StringIO
 import requests
 import random
+from textblob import TextBlob
+
 try:
     import json
 except ImportError:
@@ -35,11 +37,8 @@ def handle_my_custom_event(data):
      if request.sid in socket_ids:
          socketio.emit('send:message', data, broadcast=True, include_self=False)
      
-
      the_text = json.dumps(data['text'], ensure_ascii=True)
-
-
-    
+     
      if(the_text[1:3] == '!!'):
          if( the_text[4:len(the_text) -1] == "about"):
              socketio.sleep(seconds=0.1)
@@ -47,6 +46,10 @@ def handle_my_custom_event(data):
          elif( the_text[4:len(the_text) -1] == "help"):
              socketio.sleep(seconds=0.1)
              socketio.emit('bot:message', help, broadcast=True, include_self=True)
+         elif( the_text[4:len(the_text) -1] == "spanish"):
+             en_blob = TextBlob(u'Simple is better than complex.')
+             socketio.sleep(seconds=0.1)
+             socketio.emit('bot:message', en_blob.translate(to='es'), broadcast=True, include_self=True)
          else:
              socketio.sleep(seconds=0.1)
              socketio.emit('bot:message', dont_recon, broadcast=True, include_self=True)
