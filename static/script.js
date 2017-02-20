@@ -14962,7 +14962,6 @@ var responseGoogle = function responseGoogle(response) {
 
 var responseFacebook = function responseFacebook(response) {
 	console.log(response);
-	// alert(response['picture']['data']['url']);
 	if (response['picture']['data']['url'] != "") {
 		_Socket.Socket.emit('facebook:athenticate', response);
 	}
@@ -15095,7 +15094,8 @@ var ChatApp = React.createClass({
 		var index = users.indexOf(name);
 		users.splice(index, 1);
 		messages.push({
-			user: 'APPLICATION BOT',
+			user: 'Copper BOT',
+			image: 'http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/matte-white-square-icons-business/124810-matte-white-square-icon-business-robot.png',
 			text: name + ' Left'
 		});
 		this.setState({ users: users, messages: messages });
