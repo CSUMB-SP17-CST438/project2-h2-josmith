@@ -7,6 +7,7 @@ import random
 import flask_sqlalchemy
 from flask import jsonify
 from ast import literal_eval
+from sqlalchemy.orm import load_only
 try:
     import json
 except ImportError:
@@ -235,23 +236,25 @@ def hello():
     return render_template('index.html')
 @socketio.on('connect')
 def on_connect():
-   print 'Someone connected!------------------------------------'
-   messages = models.Message.query(messages2.message)
-   new = str(messages[0])
-   print new
-   new1 = json.loads(new.replace("'",'"'))
+  print 'Someone connected!------------------------------------'
+  messages = models.Message.query.all()
+  print messages
+  new = json.loads(str(messages[0]))
+  print new['text']
+  socketio.emit('send:message', new, room=request.sid)
+#   new1 = json.loads(new.replace("'",'"'))
    
-   print new1
+#   print new
 
 #   for message in messages:
 #       socketio.sleep(seconds=0.2)
-#   socketio.emit('send:message', messages[0], broadcast=True, include_self=False)
+#   socketio.emit('send:message', messages[0], room=request.sid)
        
 @socketio.on('send:message')
 def handle_my_custom_event(data):
      
     #  socketio.sleep(seconds=0.1)
-    #  massage = models.Message(data)
+    #  massage = models.Message(json.dumps(data, ensure_ascii=False))
     #  models.db.session.add(massage)
     #  models.db.session.commit()
      
