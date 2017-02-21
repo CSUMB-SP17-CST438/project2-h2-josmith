@@ -19,6 +19,7 @@ socketio = SocketIO(app)
 
 # database stuff
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://smitjb45:Goldfish83-@*/postgres'
+app.config.from_object(os.getenv("DATABASE_URL"))
 db = flask_sqlalchemy.SQLAlchemy(app)
 import models
 db.create_all()
