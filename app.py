@@ -18,7 +18,7 @@ app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 
 # database stuff
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://smitjb45:Goldfish83-@localhost/postgres'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://smitjb45:Goldfish83-@127.0.0.1/postgres'
 db = flask_sqlalchemy.SQLAlchemy(app)
 import models
 db.create_all()
