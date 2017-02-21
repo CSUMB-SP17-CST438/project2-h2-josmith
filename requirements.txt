@@ -2,3 +2,4 @@ Flask
 simplejson
 flask_socketio
 requests
+flask_sqlalchemy
