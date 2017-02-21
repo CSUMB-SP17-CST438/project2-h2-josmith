@@ -21,8 +21,8 @@ socketio = SocketIO(app)
 
 # database stuff
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
-
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://smitjb45:Goldfish83-@localhost/postgres'
 db = flask_sqlalchemy.SQLAlchemy(app)
 import models
 
@@ -229,34 +229,28 @@ ________1¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶1¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶1_____
 """
 @app.route('/')
 
-
-
 def hello():
     
     return render_template('index.html')
 @socketio.on('connect')
 def on_connect():
   print 'Someone connected!------------------------------------'
+  
+  #print the past messsages
   messages = models.Message.query.all()
-  print messages
   new = json.loads(str(messages[0]))
-  print new['text']
-  socketio.emit('send:message', new, room=request.sid)
-#   new1 = json.loads(new.replace("'",'"'))
-   
-#   print new
-
-#   for message in messages:
-#       socketio.sleep(seconds=0.2)
-#   socketio.emit('send:message', messages[0], room=request.sid)
+  for message in messages:
+      new = json.loads(str(message))
+      socketio.sleep(seconds=0.2)
+      socketio.emit('send:message', new, room=request.sid)
        
 @socketio.on('send:message')
 def handle_my_custom_event(data):
      
-    #  socketio.sleep(seconds=0.1)
-    #  massage = models.Message(json.dumps(data, ensure_ascii=False))
-    #  models.db.session.add(massage)
-    #  models.db.session.commit()
+     socketio.sleep(seconds=0.1)
+     massage = models.Message(json.dumps(data, ensure_ascii=False))
+     models.db.session.add(massage)
+     models.db.session.commit()
      
      if request.sid in socket_ids:
          socketio.sleep(seconds=0.1)
