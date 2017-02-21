@@ -1,9 +1,12 @@
 
-#Theme is explained in readme file
-### The theme i wanted to be light and elegant. There's a backgound picture of a 
-1 point: How theme is implemented is explained in readme file
-1 point: Acknowledgement of known problems, if they exist, in readme file
-1 point: Description of how to improve in readme file
+#My Thoughts
+### The theme i wanted to be light and elegant. There's a backgound picture of a cut carrots on a cutting board that I bleached out. 
+###    Ontop of that is a screen where the text shows up. I put some cool things in which are mario art and ther things. Just use the help to see what the key words are. 
+### The probles are more UX things that I have found. The screen could move down and not have to manullay be done. Also, the text box is really small and basic.
+### I would say it needs a lot of UI work, but in 2 weeks, I'm happy with it.
+### I think one of the big things that I would improve is the bot, I'm not going to say how because i'm going to do it for part 2. 
+###  The other thing is that the code really needs to be cleaned up. It's realy messy, but I'm just glad I finished the assignment.
+
 
 
 Some starter code for React on Flask.
