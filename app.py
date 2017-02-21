@@ -234,17 +234,17 @@ def hello():
 @socketio.on('connect')
 def on_connect():
    print 'Someone connected!------------------------------------'
-   messages = models.Message.query.all()
-   for message in messages:
-       socketio.sleep(seconds=0.2)
-       socketio.emit('send:message', message, broadcast=True, include_self=False)
+#   messages = models.Message.query.all()
+#   for message in messages:
+#       socketio.sleep(seconds=0.2)
+#       socketio.emit('send:message', message, broadcast=True, include_self=False)
        
 @socketio.on('send:message')
 def handle_my_custom_event(data):
      socketio.sleep(seconds=0.1)
-     massage = models.Message(data)
-     db.session.add(massage)
-     models.db.session.commit()
+    #  massage = models.Message(data)
+    #  db.session.add(massage)
+    #  models.db.session.commit()
      
      if request.sid in socket_ids:
          socketio.sleep(seconds=0.1)
