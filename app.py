@@ -19,7 +19,7 @@ socketio = SocketIO(app)
 
 # database stuff
 
-app.config.from_object(os.getenv("DATABASE_URL"))
+app.config.from_object(os.getenv("DATABASE_URL1"))
 db = flask_sqlalchemy.SQLAlchemy(app)
 import models
 db.create_all()
