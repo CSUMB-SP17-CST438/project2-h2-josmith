@@ -5,7 +5,8 @@ from flask_socketio import SocketIO
 import requests
 import random
 import flask_sqlalchemy
-
+from flask import jsonify
+from ast import literal_eval
 try:
     import json
 except ImportError:
@@ -19,10 +20,11 @@ socketio = SocketIO(app)
 
 # database stuff
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://smitjb45:Goldfish83-@localhost/postgres'
 db = flask_sqlalchemy.SQLAlchemy(app)
 import models
-db.create_all()
+
 
 socket_ids = {}
 about = 'This is a chat app that was build in CSUMBs software engineering class in two weeks'
@@ -134,7 +136,7 @@ softkitty = """
 ▀█▒▒▒█▌▒▒█▒▒▐█▒▒▒▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌─────
 ▀▌▒▒▒▒▒▒▀▒▀▒▒▒▒▒▒▀▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒▐───▄▄
 ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌▄█▒█
-▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒█▀─
+▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒���▒▒▒▒▒▒▒▒▒▒▒▒█▒█▀─
 ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▀───
 ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌────
 ─▌▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▐─────
@@ -159,7 +161,7 @@ yoshi= """
 ───────██▒▒───────▒▒▒▒▒▒▒▒▒▒▒▒█
 ────────██▒▒─────█▒▒▒▒▒▒▒▒▒▒▒▒█
 ────────███▒▒───██▒▒▒▒▒▒▒▒▒▒▒▒█
-─────────███▒▒───█▒▒▒▒▒▒▒▒▒▒▒█─
+─────────███▒▒───█▒▒���▒▒▒▒▒▒▒▒█─
 ────────██▀█▒▒────█▒▒▒▒▒▒▒▒██──
 ──────██▀██▒▒▒────█████████────
 ────██▀███▒▒▒▒────█▒▒██────────
@@ -234,16 +236,23 @@ def hello():
 @socketio.on('connect')
 def on_connect():
    print 'Someone connected!------------------------------------'
-#   messages = models.Message.query.all()
+   messages = models.Message.query(messages2.message)
+   new = str(messages[0])
+   print new
+   new1 = json.loads(new.replace("'",'"'))
+   
+   print new1
+
 #   for message in messages:
 #       socketio.sleep(seconds=0.2)
-#       socketio.emit('send:message', message, broadcast=True, include_self=False)
+#   socketio.emit('send:message', messages[0], broadcast=True, include_self=False)
        
 @socketio.on('send:message')
 def handle_my_custom_event(data):
-     socketio.sleep(seconds=0.1)
+     
+    #  socketio.sleep(seconds=0.1)
     #  massage = models.Message(data)
-    #  db.session.add(massage)
+    #  models.db.session.add(massage)
     #  models.db.session.commit()
      
      if request.sid in socket_ids:
@@ -293,7 +302,10 @@ def test_connect_google(data):
 
 @socketio.on('disconnect', namespace='/')
 def test_disconnect():
-    socketio.emit('user:left', {'users': socket_ids[request.sid]}, broadcast=True, include_self = True)
+    
+    if request.sid in socket_ids:
+         socketio.sleep(seconds=0.1)
+         socketio.emit('user:left', {'users': socket_ids[request.sid]}, broadcast=True, include_self = True)
 
 if __name__ == '__main__':
     socketio.run(
