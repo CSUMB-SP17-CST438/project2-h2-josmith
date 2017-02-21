@@ -2,17 +2,26 @@
 import os
 from flask import Flask, render_template, request
 from flask_socketio import SocketIO
-from StringIO import StringIO
 import requests
 import random
+import flask_sqlalchemy
+
 try:
     import json
 except ImportError:
     import simplejson as json
 
 app = Flask(__name__)
+
+# socket io stuff
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
+
+# database stuff
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://smitjb45:Goldfish83-@localhost/postgres'
+db = flask_sqlalchemy.SQLAlchemy(app)
+import models
+db.create_all()
 
 socket_ids = {}
 about = 'This is a chat app that was build in CSUMBs software engineering class in two weeks'
@@ -224,12 +233,20 @@ def hello():
 @socketio.on('connect')
 def on_connect():
    print 'Someone connected!------------------------------------'
-   
+   messages = models.Message.query.all()
+   for message in messages:
+       socketio.sleep(seconds=0.2)
+       socketio.emit('send:message', message, broadcast=True, include_self=False)
+       
 @socketio.on('send:message')
 def handle_my_custom_event(data):
      socketio.sleep(seconds=0.1)
+     massage = models.Message(data)
+     db.session.add(massage)
+     models.db.session.commit()
      
      if request.sid in socket_ids:
+         socketio.sleep(seconds=0.1)
          socketio.emit('send:message', data, broadcast=True, include_self=False)
      
      the_text = json.dumps(data['text'], ensure_ascii=False)
@@ -277,8 +294,9 @@ def test_connect_google(data):
 def test_disconnect():
     socketio.emit('user:left', {'users': socket_ids[request.sid]}, broadcast=True, include_self = True)
 
-socketio.run(
-    app,
-    host=os.getenv('IP', '0.0.0.0'),
-    port=int(os.getenv('PORT', 8080))
-)
+if __name__ == '__main__':
+    socketio.run(
+        app,
+        host=os.getenv('IP', '0.0.0.0'),
+        port=int(os.getenv('PORT', 8080))
+    )
