@@ -3,3 +3,4 @@ simplejson
 flask_socketio
 requests
 flask_sqlalchemy
+psycopg2
