@@ -1,4 +1,10 @@
-# lecture6-thuhe
+
+#Theme is explained in readme file
+### The theme i wanted to be light and elegant. There's a backgound picture of a 
+1 point: How theme is implemented is explained in readme file
+1 point: Acknowledgement of known problems, if they exist, in readme file
+1 point: Description of how to improve in readme file
+
 
 Some starter code for React on Flask.
 

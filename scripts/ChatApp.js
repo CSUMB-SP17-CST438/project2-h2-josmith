@@ -23,7 +23,7 @@ var Social = React.createClass({
                <div onClick={ this.handleClick }>
 			      <GoogleLogin
 			          clientId="339887222847-7237f4eqsp22ddnj9h44chgbnoq1s8mk.apps.googleusercontent.com"
-			          buttonText="Login"
+			          buttonText="Google"
 			          scope="profile email"
 			          onSuccess={responseGoogle}
 			          onFailure={responseGoogle}
@@ -35,6 +35,7 @@ var Social = React.createClass({
 				     autoLoad={false}
 				     fields="name,email,picture"
 				     callback={responseFacebook}
+				     textButton="Facebook"
 				 />
 				</div>
 		    </ToggleDisplay>
@@ -156,7 +157,7 @@ var MessageForm = React.createClass({
 	render() {
 		return(
 			<div className='message_form'>
-				<h3>Write New Message</h3>
+			   
 				<form onSubmit={this.handleSubmit}>
 					<input
 						onChange={this.changeHandler}
@@ -267,7 +268,7 @@ var ChatApp = React.createClass({
 	render() {
 		return (
 			<div>
-		        <Social />
+		        
 				<div >
 				   <UserCount
 						users={this.state.users}
@@ -288,6 +289,7 @@ var ChatApp = React.createClass({
 					image={this.state.image}
 				/>
 				</div>
+				<Social />
 			</div>
 		);
 	}

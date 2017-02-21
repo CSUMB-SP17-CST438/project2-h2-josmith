@@ -13140,7 +13140,7 @@ var Social = React.createClass({
 					{ onClick: this.handleClick },
 					React.createElement(_reactGoogleLogin2.default, {
 						clientId: '339887222847-7237f4eqsp22ddnj9h44chgbnoq1s8mk.apps.googleusercontent.com',
-						buttonText: 'Login',
+						buttonText: 'Google',
 						scope: 'profile email',
 						onSuccess: responseGoogle,
 						onFailure: responseGoogle
@@ -13153,7 +13153,8 @@ var Social = React.createClass({
 						appId: '252733528514405',
 						autoLoad: false,
 						fields: 'name,email,picture',
-						callback: responseFacebook
+						callback: responseFacebook,
+						textButton: 'Facebook'
 					})
 				)
 			)
@@ -13299,11 +13300,6 @@ var MessageForm = React.createClass({
 			'div',
 			{ className: 'message_form' },
 			React.createElement(
-				'h3',
-				null,
-				'Write New Message'
-			),
-			React.createElement(
 				'form',
 				{ onSubmit: this.handleSubmit },
 				React.createElement('input', {
@@ -13431,7 +13427,6 @@ var ChatApp = React.createClass({
 		return React.createElement(
 			'div',
 			null,
-			React.createElement(Social, null),
 			React.createElement(
 				'div',
 				null,
@@ -13457,7 +13452,8 @@ var ChatApp = React.createClass({
 					user: this.state.name,
 					image: this.state.image
 				})
-			)
+			),
+			React.createElement(Social, null)
 		);
 	}
 });

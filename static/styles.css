@@ -109,7 +109,7 @@ body {
     height: 100%;
 }
 .social{
-    margin: -60px 0px 0px 500px;
+    margin: -100px 0px 0px 0px;
 }
 
 input{
@@ -211,6 +211,20 @@ input{
             font-size: 12px;
         }
     }
+}
+
+.message_form {
+  display: block;
+  margin: 0;
+  width: 100%;
+  font-family: sans-serif;
+  font-size: 18px;
+  appearance: none;
+  box-shadow: none;
+  border-radius: 5px;
+}
+.message_form:focus {
+  outline: none;
 }
 
 @media (max-height: 400px) {
