@@ -16,7 +16,7 @@ socketio = SocketIO(app)
 
 socket_ids = {}
 about = 'This is a chat app that was build in CSUMBs software engineering class in two weeks'
-help = 'The options are about, help, say, mario, mickey, softkitty, yoshi, and kenny'
+help = 'The options are about, help, say: !! say <words to say>, mario, softkitty, yoshi, and kenny'
 dont_recon = 'Sorry, I dont uderstand that command'
 mario = """
 __________________▄▄▄▀▀▀▀▀▀▀▄
