@@ -235,14 +235,16 @@ def hello():
 @socketio.on('connect')
 def on_connect():
   print 'Someone connected!------------------------------------'
-  
-  #print the past messsages
-  messages = models.Message.query.all()
-  new = json.loads(str(messages[0]))
-  for message in messages:
-      new = json.loads(str(message))
-      socketio.sleep(seconds=0.2)
-      socketio.emit('send:message', new, room=request.sid)
+  try:
+      #print the past messsages
+      messages = models.Message.query.all()
+      new = json.loads(str(messages[0]))
+      for message in messages:
+          new = json.loads(str(message))
+          socketio.sleep(seconds=0.2)
+          socketio.emit('send:message', new, room=request.sid)
+  except ImportError:
+    print "error im in the connect method"
        
 @socketio.on('send:message')
 def handle_my_custom_event(data):
