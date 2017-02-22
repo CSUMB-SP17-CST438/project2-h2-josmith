@@ -255,7 +255,7 @@ def on_connect():
              elif( the_text[3:len(the_text)] == "help"):
                  socketio.sleep(seconds=0.1)
                  socketio.emit('bot:message', help, broadcast=True, include_self=True)
-             elif( the_text[3:7] == "say"):
+             elif( the_text[3:6] == "say"):
                  socketio.sleep(seconds=0.1)
                  socketio.emit('bot:message', the_text[7:len(the_text) -1], broadcast=True, include_self=True)
              elif( the_text[3:len(the_text)] == "mario"):
