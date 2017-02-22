@@ -22,8 +22,8 @@ socketio = SocketIO(app)
 
 # database stuff
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://smitjb45:Goldfish83-@localhost/postgres'
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://smitjb45:Goldfish83-@localhost/postgres'
 db = flask_sqlalchemy.SQLAlchemy(app)
 import models
 
@@ -246,29 +246,28 @@ def on_connect():
           socketio.emit('send:message', new, room=request.sid)
           socketio.sleep(seconds=0.2)
           
-          print new
-          the_text = json.dumps(new, ensure_ascii=False)
-          print new
-          if(the_text[1:3] == '!!'):
-             if( the_text[4:len(the_text) -1] == "about"):
+          
+          the_text = str(new['text'])
+          if(the_text[0:2] == '!!'):
+             if( the_text[3:len(the_text)] == "about"):
                  socketio.sleep(seconds=0.1)
                  socketio.emit('bot:message', about, broadcast=True, include_self=True)
-             elif( the_text[4:len(the_text) -1] == "help"):
+             elif( the_text[3:len(the_text)] == "help"):
                  socketio.sleep(seconds=0.1)
                  socketio.emit('bot:message', help, broadcast=True, include_self=True)
-             elif( the_text[4:7] == "say"):
+             elif( the_text[3:7] == "say"):
                  socketio.sleep(seconds=0.1)
                  socketio.emit('bot:message', the_text[7:len(the_text) -1], broadcast=True, include_self=True)
-             elif( the_text[4:len(the_text) -1] == "mario"):
+             elif( the_text[3:len(the_text)] == "mario"):
                  socketio.sleep(seconds=0.1)
                  socketio.emit('bot:message', mario, broadcast=True, include_self=True)
-             elif( the_text[4:len(the_text) -1] == "softkitty"):
+             elif( the_text[3:len(the_text)] == "softkitty"):
                  socketio.sleep(seconds=0.1)
                  socketio.emit('bot:message', softkitty, broadcast=True, include_self=True)
-             elif( the_text[4:len(the_text) -1] == "yoshi"):
+             elif( the_text[3:len(the_text)] == "yoshi"):
                  socketio.sleep(seconds=0.1)
                  socketio.emit('bot:message', yoshi, broadcast=True, include_self=True)
-             elif( the_text[4:len(the_text) -1] == "kenny"):
+             elif( the_text[3:len(the_text)] == "kenny"):
                  socketio.sleep(seconds=0.1)
                  socketio.emit('bot:message', kenny, broadcast=True, include_self=True)
              else:
