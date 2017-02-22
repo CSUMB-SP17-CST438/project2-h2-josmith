@@ -246,8 +246,9 @@ def on_connect():
           socketio.emit('send:message', new, room=request.sid)
           socketio.sleep(seconds=0.2)
           
+          print new
           the_text = json.dumps(new, ensure_ascii=False)
-          
+          print new
           if(the_text[1:3] == '!!'):
              if( the_text[4:len(the_text) -1] == "about"):
                  socketio.sleep(seconds=0.1)
