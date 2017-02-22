@@ -244,6 +244,36 @@ def on_connect():
           new = json.loads(str(message))
           socketio.sleep(seconds=0.2)
           socketio.emit('send:message', new, room=request.sid)
+          socketio.sleep(seconds=0.2)
+          
+          the_text = json.dumps(new, ensure_ascii=False)
+          
+          if(the_text[1:3] == '!!'):
+             if( the_text[4:len(the_text) -1] == "about"):
+                 socketio.sleep(seconds=0.1)
+                 socketio.emit('bot:message', about, broadcast=True, include_self=True)
+             elif( the_text[4:len(the_text) -1] == "help"):
+                 socketio.sleep(seconds=0.1)
+                 socketio.emit('bot:message', help, broadcast=True, include_self=True)
+             elif( the_text[4:7] == "say"):
+                 socketio.sleep(seconds=0.1)
+                 socketio.emit('bot:message', the_text[7:len(the_text) -1], broadcast=True, include_self=True)
+             elif( the_text[4:len(the_text) -1] == "mario"):
+                 socketio.sleep(seconds=0.1)
+                 socketio.emit('bot:message', mario, broadcast=True, include_self=True)
+             elif( the_text[4:len(the_text) -1] == "softkitty"):
+                 socketio.sleep(seconds=0.1)
+                 socketio.emit('bot:message', softkitty, broadcast=True, include_self=True)
+             elif( the_text[4:len(the_text) -1] == "yoshi"):
+                 socketio.sleep(seconds=0.1)
+                 socketio.emit('bot:message', yoshi, broadcast=True, include_self=True)
+             elif( the_text[4:len(the_text) -1] == "kenny"):
+                 socketio.sleep(seconds=0.1)
+                 socketio.emit('bot:message', kenny, broadcast=True, include_self=True)
+             else:
+                 socketio.sleep(seconds=0.1)
+                 socketio.emit('bot:message', dont_recon, broadcast=True, include_self=True)
+          
   except ImportError:
     print "error im in the connect method"
        
@@ -308,6 +338,7 @@ def test_disconnect():
          socketio.emit('user:left', {'users': socket_ids[request.sid]}, broadcast=True, include_self = True)
 
 if __name__ == '__main__':
+    print db
     socketio.run(
         app,
         host=os.getenv('IP', '0.0.0.0'),
