@@ -13242,12 +13242,16 @@ var MessageList = React.createClass({
 				' Conversation: '
 			),
 			this.props.messages.map(function (message, i) {
-				return React.createElement(Message, {
-					key: i,
-					image: message.image,
-					user: message.user,
-					text: message.text
-				});
+				return React.createElement(
+					'div',
+					{ className: 'text' },
+					React.createElement(Message, {
+						key: i,
+						image: message.image,
+						user: message.user,
+						text: message.text
+					})
+				);
 			})
 		);
 	}

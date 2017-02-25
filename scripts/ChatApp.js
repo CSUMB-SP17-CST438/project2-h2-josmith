@@ -95,12 +95,14 @@ var MessageList = React.createClass({
 				{
 					this.props.messages.map((message, i) => {
 						return (
+						   <div className="text">
 							<Message
 								key={i}
 								image={message.image}
 								user={message.user}
 								text={message.text} 
 							/>
+							</div>
 						);
 					})
 				} 
