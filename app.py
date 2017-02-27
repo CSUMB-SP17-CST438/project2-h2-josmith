@@ -93,35 +93,7 @@ def handle_my_custom_event(data):
      if request.sid in socket_ids:
          socketio.sleep(seconds=0.1)
          socketio.emit('send:message', data, broadcast=True, include_self=False)
-     
-         the_text = str(data['text'])
-          
-         if(the_text[0:2] == '!!'):
-            if( the_text[3:len(the_text)] == "about"):
-                socketio.sleep(seconds=0.1)
-                socketio.emit('bot:message', about, broadcast=True, include_self=True)
-            elif( the_text[3:len(the_text)] == "help"):
-                socketio.sleep(seconds=0.1)
-                socketio.emit('bot:message', help, broadcast=True, include_self=True)
-            elif( the_text[3:6] == "say"):
-                socketio.sleep(seconds=0.1)
-                socketio.emit('bot:message', the_text[7:len(the_text)], broadcast=True, include_self=True)
-            elif( the_text[3:len(the_text)] == "mario"):
-                socketio.sleep(seconds=0.1)
-                socketio.emit('bot:message', mario, broadcast=True, include_self=True)
-            elif( the_text[3:len(the_text)] == "softkitty"):
-                socketio.sleep(seconds=0.1)
-                socketio.emit('bot:message', softkitty, broadcast=True, include_self=True)
-            elif( the_text[3:len(the_text)] == "yoshi"):
-                socketio.sleep(seconds=0.1)
-                socketio.emit('bot:message', yoshi, broadcast=True, include_self=True)
-            elif( the_text[3:len(the_text)] == "kenny"):
-                socketio.sleep(seconds=0.1)
-                socketio.emit('bot:message', kenny, broadcast=True, include_self=True)
-            else:
-             socketio.sleep(seconds=0.1)
-             socketio.emit('bot:message', dont_recon, broadcast=True, include_self=True)
-
+         bot(data)
     
 @socketio.on('facebook:athenticate', namespace='/')
 def test_connect_facebook(data):
@@ -141,6 +113,35 @@ def test_disconnect():
     if request.sid in socket_ids:
          socketio.sleep(seconds=0.1)
          socketio.emit('user:left', {'users': socket_ids[request.sid]}, broadcast=True, include_self = True)
+         
+def bot(data):
+     the_text = str(data['text'])
+          
+     if(the_text[0:2] == '!!'):
+        if( the_text[3:len(the_text)] == "about"):
+            socketio.sleep(seconds=0.1)
+            socketio.emit('bot:message', about, broadcast=True, include_self=True)
+        elif( the_text[3:len(the_text)] == "help"):
+            socketio.sleep(seconds=0.1)
+            socketio.emit('bot:message', help, broadcast=True, include_self=True)
+        elif( the_text[3:6] == "say"):
+            socketio.sleep(seconds=0.1)
+            socketio.emit('bot:message', the_text[7:len(the_text)], broadcast=True, include_self=True)
+        elif( the_text[3:len(the_text)] == "mario"):
+            socketio.sleep(seconds=0.1)
+            socketio.emit('bot:message', mario, broadcast=True, include_self=True)
+        elif( the_text[3:len(the_text)] == "softkitty"):
+            socketio.sleep(seconds=0.1)
+            socketio.emit('bot:message', softkitty, broadcast=True, include_self=True)
+        elif( the_text[3:len(the_text)] == "yoshi"):
+            socketio.sleep(seconds=0.1)
+            socketio.emit('bot:message', yoshi, broadcast=True, include_self=True)
+        elif( the_text[3:len(the_text)] == "kenny"):
+            socketio.sleep(seconds=0.1)
+            socketio.emit('bot:message', kenny, broadcast=True, include_self=True)
+        else:
+         socketio.sleep(seconds=0.1)
+         socketio.emit('bot:message', dont_recon, broadcast=True, include_self=True)
 
 if __name__ == '__main__':
     print db
