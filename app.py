@@ -50,34 +50,7 @@ def on_connect():
           socketio.sleep(seconds=0.2)
           socketio.emit('send:message', new, room=request.sid)
           socketio.sleep(seconds=0.2)
-          
-          
-          the_text = str(new['text'])
-          if(the_text[0:2] == '!!'):
-             if( the_text[3:len(the_text)] == "about"):
-                 socketio.sleep(seconds=0.1)
-                 socketio.emit('bot:message', about, broadcast=True, include_self=True)
-             elif( the_text[3:len(the_text)] == "help"):
-                 socketio.sleep(seconds=0.1)
-                 socketio.emit('bot:message', help, broadcast=True, include_self=True)
-             elif( the_text[3:6] == "say"):
-                 socketio.sleep(seconds=0.1)
-                 socketio.emit('bot:message', the_text[7:len(the_text)], broadcast=True, include_self=True)
-             elif( the_text[3:len(the_text)] == "mario"):
-                 socketio.sleep(seconds=0.1)
-                 socketio.emit('bot:message', mario, broadcast=True, include_self=True)
-             elif( the_text[3:len(the_text)] == "softkitty"):
-                 socketio.sleep(seconds=0.1)
-                 socketio.emit('bot:message', softkitty, broadcast=True, include_self=True)
-             elif( the_text[3:len(the_text)] == "yoshi"):
-                 socketio.sleep(seconds=0.1)
-                 socketio.emit('bot:message', yoshi, broadcast=True, include_self=True)
-             elif( the_text[3:len(the_text)] == "kenny"):
-                 socketio.sleep(seconds=0.1)
-                 socketio.emit('bot:message', kenny, broadcast=True, include_self=True)
-             else:
-                 socketio.sleep(seconds=0.1)
-                 socketio.emit('bot:message', dont_recon, broadcast=True, include_self=True)
+          bot(new)
           
   except ImportError:
     print "error im in the connect method"
