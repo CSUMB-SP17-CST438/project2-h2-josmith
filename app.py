@@ -43,7 +43,7 @@ def on_connect():
   print 'Someone connected!------------------------------------'
   try:
       #print the past messsages
-      messages = models.Message.query.order_by(models.Message.id.desc()).limit(10).from_self().order_by(models.Message.id.asc())
+      messages = models.Message.query.order_by(models.Message.id.desc()).limit(15).from_self().order_by(models.Message.id.asc())
       new = json.loads(str(messages[0]))
       for message in messages:
           new = json.loads(str(message))
