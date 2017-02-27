@@ -95,7 +95,7 @@ var MessageList = React.createClass({
 				{
 					this.props.messages.map((message, i) => {
 						return (
-						   <div className="text">
+						   <div className="text" key={i}>
 							<Message
 								key={i}
 								image={message.image}

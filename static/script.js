@@ -13244,7 +13244,7 @@ var MessageList = React.createClass({
 			this.props.messages.map(function (message, i) {
 				return React.createElement(
 					'div',
-					{ className: 'text' },
+					{ className: 'text', key: i },
 					React.createElement(Message, {
 						key: i,
 						image: message.image,
