@@ -8,6 +8,13 @@ from ast import literal_eval
 from sqlalchemy.orm import load_only
 from flask_socketio import SocketIO
 from testart import mario, softkitty, yoshi, kenny
+import middleware
+
+account_sid = "ACf8a0a19a076e5b5cfb46bcb1a2800a02"
+auth_token = "8fcaaf3a59fc15c79a156f55db92d38a"
+
+
+
 
 try:
     import json
@@ -22,8 +29,8 @@ socketio = SocketIO(app)
 
 # database stuff
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://smitjb45:Goldfish83-@localhost/postgres'
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://smitjb45:Goldfish83-@localhost/postgres'
 db = flask_sqlalchemy.SQLAlchemy(app)
 
 about = 'This is a chat app that was build in CSUMBs software engineering class in two weeks'
@@ -42,9 +49,9 @@ def hello():
 def on_connect():
   print 'Someone connected!------------------------------------'
   try:
-      #print the past messsages
-      messages = models.Message.query.order_by(models.Message.id.desc()).limit(10).from_self().order_by(models.Message.id.asc())
-    #   messages = models.Message.query.all()
+      #print the past messages
+    #  messages = models.Message.query.order_by(models.Message.id.desc()).limit(10).from_self().order_by(models.Message.id.asc())
+      messages = models.Message.query.all()
       new = json.loads(str(messages[0]))
       for message in messages:
           new = json.loads(str(message))
@@ -62,8 +69,8 @@ def handle_my_custom_event(data):
      if request.sid in socket_ids:
          socketio.sleep(seconds=0.1)
          massage = models.Message(json.dumps(data, ensure_ascii=False))
-         models.db.session.add(massage)
-         models.db.session.commit()
+        #  models.db.session.add(massage)
+        #  models.db.session.commit()
          
          socketio.sleep(seconds=0.1)
          socketio.emit('send:message', data, broadcast=True, include_self=False)
@@ -113,6 +120,10 @@ def bot(data):
         elif( the_text[3:len(the_text)] == "kenny"):
             socketio.sleep(seconds=0.1)
             socketio.emit('bot:message', kenny, broadcast=True, include_self=True)
+        elif( the_text[3:7] == "text"):
+            client = middleware.TwilioRestClient(account_sid,auth_token)
+            message = client.messages.create(to="+18314285108", from_="+18312010628",
+                                     body=the_text[8:len(the_text)])
         else:
          socketio.sleep(seconds=0.1)
          socketio.emit('bot:message', dont_recon, broadcast=True, include_self=True)

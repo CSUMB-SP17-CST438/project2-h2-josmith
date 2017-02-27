@@ -4,3 +4,18 @@ flask_socketio
 requests
 flask_sqlalchemy
 psycopg2
+
+# Requirements for server-notifications-django
+
+# Django (1.8 is a long-term support release)
+Django==1.8
+twilio
+whitenoise
+
+# Production dependencies
+gunicorn
+
+# Test dependencies
+coverage
+mock
+six
