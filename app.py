@@ -43,7 +43,7 @@ def on_connect():
   print 'Someone connected!------------------------------------'
   try:
       #print the past messsages
-      messages = models.Message.query.order_by(models.Message.id.desc()).limit(15).from_self().order_by(models.Message.id.asc())
+      messages = models.Message.query.order_by(models.Message.id.desc()).limit(10).from_self().order_by(models.Message.id.asc())
     #   messages = models.Message.query.all()
       new = json.loads(str(messages[0]))
       for message in messages:
@@ -59,12 +59,12 @@ def on_connect():
 @socketio.on('send:message')
 def handle_my_custom_event(data):
      
-     socketio.sleep(seconds=0.1)
-    #  massage = models.Message(json.dumps(data, ensure_ascii=False))
-    #  models.db.session.add(massage)
-    #  models.db.session.commit()
-     
      if request.sid in socket_ids:
+         socketio.sleep(seconds=0.1)
+         massage = models.Message(json.dumps(data, ensure_ascii=False))
+         models.db.session.add(massage)
+         models.db.session.commit()
+         
          socketio.sleep(seconds=0.1)
          socketio.emit('send:message', data, broadcast=True, include_self=False)
          bot(data)
