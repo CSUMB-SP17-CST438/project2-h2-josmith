@@ -1,13 +1,13 @@
 import os
 from flask import Flask, render_template, request
-from flask_socketio import SocketIO
 import requests
 import random
 import flask_sqlalchemy
 from flask import jsonify
 from ast import literal_eval
 from sqlalchemy.orm import load_only
-from testart import mario, softkitty, yoshi, kenny
+from flask_socketio import SocketIO
+import bot
 
 try:
     import json
@@ -25,14 +25,10 @@ socketio = SocketIO(app)
 #app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://smitjb45:Goldfish83-@localhost/postgres'
 db = flask_sqlalchemy.SQLAlchemy(app)
+
 import models
 
-
 socket_ids = {}
-about = 'This is a chat app that was build in CSUMBs software engineering class in two weeks'
-help = 'The options are about, help, say: !! say <words to say>, mario, softkitty, yoshi, and kenny'
-dont_recon = 'Sorry, I dont uderstand that command'
-
 @app.route('/')
 
 def hello():
@@ -50,7 +46,7 @@ def on_connect():
           socketio.sleep(seconds=0.2)
           socketio.emit('send:message', new, room=request.sid)
           socketio.sleep(seconds=0.2)
-          bot(new)
+          bot.bot(new)
           
   except ImportError:
     print "error im in the connect method"
@@ -66,7 +62,7 @@ def handle_my_custom_event(data):
      if request.sid in socket_ids:
          socketio.sleep(seconds=0.1)
          socketio.emit('send:message', data, broadcast=True, include_self=False)
-         bot(data)
+         bot.bot(data)
     
 @socketio.on('facebook:athenticate', namespace='/')
 def test_connect_facebook(data):
@@ -86,35 +82,6 @@ def test_disconnect():
     if request.sid in socket_ids:
          socketio.sleep(seconds=0.1)
          socketio.emit('user:left', {'users': socket_ids[request.sid]}, broadcast=True, include_self = True)
-         
-def bot(data):
-     the_text = str(data['text'])
-          
-     if(the_text[0:2] == '!!'):
-        if( the_text[3:len(the_text)] == "about"):
-            socketio.sleep(seconds=0.1)
-            socketio.emit('bot:message', about, broadcast=True, include_self=True)
-        elif( the_text[3:len(the_text)] == "help"):
-            socketio.sleep(seconds=0.1)
-            socketio.emit('bot:message', help, broadcast=True, include_self=True)
-        elif( the_text[3:6] == "say"):
-            socketio.sleep(seconds=0.1)
-            socketio.emit('bot:message', the_text[7:len(the_text)], broadcast=True, include_self=True)
-        elif( the_text[3:len(the_text)] == "mario"):
-            socketio.sleep(seconds=0.1)
-            socketio.emit('bot:message', mario, broadcast=True, include_self=True)
-        elif( the_text[3:len(the_text)] == "softkitty"):
-            socketio.sleep(seconds=0.1)
-            socketio.emit('bot:message', softkitty, broadcast=True, include_self=True)
-        elif( the_text[3:len(the_text)] == "yoshi"):
-            socketio.sleep(seconds=0.1)
-            socketio.emit('bot:message', yoshi, broadcast=True, include_self=True)
-        elif( the_text[3:len(the_text)] == "kenny"):
-            socketio.sleep(seconds=0.1)
-            socketio.emit('bot:message', kenny, broadcast=True, include_self=True)
-        else:
-         socketio.sleep(seconds=0.1)
-         socketio.emit('bot:message', dont_recon, broadcast=True, include_self=True)
 
 if __name__ == '__main__':
     print db
