@@ -22,8 +22,8 @@ socketio = SocketIO(app)
 
 # database stuff
 
-#app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://smitjb45:Goldfish83-@localhost/postgres'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://smitjb45:Goldfish83-@localhost/postgres'
 db = flask_sqlalchemy.SQLAlchemy(app)
 
 about = 'This is a chat app that was build in CSUMBs software engineering class in two weeks'
@@ -43,7 +43,8 @@ def on_connect():
   print 'Someone connected!------------------------------------'
   try:
       #print the past messsages
-      messages = models.Message.query.order_by(models.Message.id.desc()).limit(15).from_self().order_by(models.Message.id.asc())
+    #   messages = models.Message.query.order_by(models.Message.id.desc()).limit(15).from_self().order_by(models.Message.id.asc())
+      messages = models.Message.query.all()
       new = json.loads(str(messages[0]))
       for message in messages:
           new = json.loads(str(message))
