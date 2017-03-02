@@ -98,26 +98,19 @@ def bot(data):
      if(the_text[0:2] == '!!'):
         if( the_text[3:len(the_text)] == "about"):
             return 'This is a chat app that was build in CSUMBs software engineering class in two weeks'
-            # socketio.emit('bot:message', about, broadcast=True, include_self=True)
         elif( the_text[3:len(the_text)] == "help"):
             return 'The options are about, help, say: !! say <words to say>, mario, softkitty, yoshi, and kenny'
-            # socketio.emit('bot:message', help, broadcast=True, include_self=True)
         elif( the_text[3:6] == "say"):
             return the_text[7:len(the_text)]
-            # socketio.emit('bot:message', the_text[7:len(the_text)], broadcast=True, include_self=True)
         elif( the_text[3:len(the_text)] == "mario"):
             socketio.sleep(seconds=0.1)
             return mario
-            # socketio.emit('bot:message', mario, broadcast=True, include_self=True)
         elif( the_text[3:len(the_text)] == "softkitty"):
             return softkitty
-            # socketio.emit('bot:message', softkitty, broadcast=True, include_self=True)
         elif( the_text[3:len(the_text)] == "yoshi"):
             return yoshi
-            # socketio.emit('bot:message', yoshi, broadcast=True, include_self=True)
         elif( the_text[3:len(the_text)] == "kenny"):
             return kenny
-            # socketio.emit('bot:message', kenny, broadcast=True, include_self=True)
         elif( the_text[3:7] == "text"):
             client = middleware.TwilioRestClient(account_sid,auth_token)
             message = client.messages.create(to="+18314285108", from_="+18312010628",
@@ -125,7 +118,6 @@ def bot(data):
             return "Text sent"
         else:
          return 'Sorry, I dont uderstand that command'
-        #  socketio.emit('bot:message', dont_recon, broadcast=True, include_self=True)
 
 if __name__ == '__main__':
     print db
