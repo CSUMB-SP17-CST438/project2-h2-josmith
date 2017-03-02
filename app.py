@@ -10,10 +10,9 @@ from flask_socketio import SocketIO
 from testart import mario, softkitty, yoshi, kenny
 import middleware
 
+# for twilio
 account_sid = "ACf8a0a19a076e5b5cfb46bcb1a2800a02"
 auth_token = "8fcaaf3a59fc15c79a156f55db92d38a"
-
-
 
 
 try:
@@ -50,8 +49,8 @@ def on_connect():
   print 'Someone connected!------------------------------------'
   try:
       #print the past messages
-    #  messages = models.Message.query.order_by(models.Message.id.desc()).limit(10).from_self().order_by(models.Message.id.asc())
-      messages = models.Message.query.all()
+      messages = models.Message.query.order_by(models.Message.id.desc()).limit(10).from_self().order_by(models.Message.id.asc())
+    #   messages = models.Message.query.all()
       new = json.loads(str(messages[0]))
       for message in messages:
           new = json.loads(str(message))
@@ -100,7 +99,7 @@ def bot(data):
           
      if(the_text[0:2] == '!!'):
         if( the_text[3:len(the_text)] == "about"):
-            socketio.sleep(seconds=0.1)
+            
             socketio.emit('bot:message', about, broadcast=True, include_self=True)
         elif( the_text[3:len(the_text)] == "help"):
             socketio.sleep(seconds=0.1)
