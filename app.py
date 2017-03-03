@@ -14,7 +14,6 @@ import middleware
 account_sid = "ACf8a0a19a076e5b5cfb46bcb1a2800a02"
 auth_token = "8fcaaf3a59fc15c79a156f55db92d38a"
 
-
 try:
     import json
 except ImportError:
@@ -27,7 +26,6 @@ app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 
 # database stuff
-
 #app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://smitjb45:Goldfish83-@localhost/postgres'
 db = flask_sqlalchemy.SQLAlchemy(app)
@@ -47,14 +45,17 @@ def on_connect():
   try:
       #print the past messages
       messages = models.Message.query.order_by(models.Message.id.desc()).limit(10).from_self().order_by(models.Message.id.asc())
-    #   messages = models.Message.query.all()
       new = json.loads(str(messages[0]))
+      
       for message in messages:
           new = json.loads(str(message))
           socketio.sleep(seconds=0.2)
           socketio.emit('send:message', new, room=request.sid)
-          socketio.sleep(seconds=0.2)
-          bot(new)
+          
+          the_text = str(new['text'])
+          if(the_text[0:2] == '!!'):
+             response = bot(new)
+             socketio.emit('bot:message', response, broadcast=True, include_self=True)
           
   except ImportError:
     print "error im in the connect method"
@@ -70,8 +71,10 @@ def handle_my_custom_event(data):
          
          socketio.sleep(seconds=0.1)
          socketio.emit('send:message', data, broadcast=True, include_self=False)
-         response = bot(data)
-         socketio.emit('bot:message', response, broadcast=True, include_self=True)
+         the_text = str(data['text'])
+         if(the_text[0:2] == '!!'):
+             response = bot(data)
+             socketio.emit('bot:message', response, broadcast=True, include_self=True)
     
 @socketio.on('facebook:athenticate', namespace='/')
 def test_connect_facebook(data):
@@ -93,8 +96,8 @@ def test_disconnect():
          socketio.emit('user:left', {'users': socket_ids[request.sid]}, broadcast=True, include_self = True)
          
 def bot(data):
+     print json.dumps(data)
      the_text = str(data['text'])
-          
      if(the_text[0:2] == '!!'):
         if( the_text[3:len(the_text)] == "about"):
             return 'This is a chat app that was build in CSUMBs software engineering class in two weeks'

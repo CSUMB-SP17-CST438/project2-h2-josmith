@@ -67,11 +67,26 @@ var UsersList = React.createClass({
 
 var Message = React.createClass({
 	render() {
+		var msg = this.props.text;
+		var msg1 = "";
+		if(msg.toLowerCase().includes("https://") || msg.toLowerCase().includes("http://")){
+		    if(msg.toLowerCase().includes(".jpg") ||
+		       msg.toLowerCase().includes(".png") ||
+		       msg.toLowerCase().includes(".gif")){
+		    	
+		    	msg1 = <img src={msg} width="200px" height="200px"/>;
+		    }else{
+		    	msg1 = <a href={msg}>{msg}</a>;
+		    }
+		}else{
+			msg1= <p>{msg}</p>;
+		}
+		
 		return (
 			<div className="message">
 			<img src={this.props.image} />
 				<strong>{this.props.user} :</strong> 
-				<div><p>{this.props.text}</p></div>		
+				<div>{msg1}</div>		
 			</div>
 		);
 	}
