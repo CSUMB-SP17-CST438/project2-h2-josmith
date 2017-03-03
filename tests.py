@@ -20,6 +20,18 @@ class ChatBotTestHelp(unittest.TestCase):
         msg = {"text": "!! help"}
         r = app.bot(msg)
         self.assertEquals(r, 'The options are about, help, say: !! say <words to say>, mario, softkitty, yoshi, and kenny')
+        
+class ChatBotTestSay(unittest.TestCase):
+    def test_bangbang_means_command(self):
+        msg = {"text": "!! say hi"}
+        r = app.bot(msg)
+        self.assertEquals(r, 'hi')
+        
+class ChatBotTestAbout(unittest.TestCase):
+    def test_bangbang_means_command(self):
+        msg = {"text": "!! about"}
+        r = app.bot(msg)
+        self.assertEquals(r, 'This is a chat app that was build in CSUMBs software engineering class in two weeks')
     
     # def test_no_bangbang_means_no_command(self):
     #     r = random_functions.get_chatbot_response('hi')
