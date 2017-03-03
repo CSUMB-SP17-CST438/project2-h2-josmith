@@ -13166,7 +13166,7 @@ var Message = React.createClass({
 		if (msg.toLowerCase().includes("https://") || msg.toLowerCase().includes("http://")) {
 			if (msg.toLowerCase().includes(".jpg") || msg.toLowerCase().includes(".png") || msg.toLowerCase().includes(".gif")) {
 
-				msg1 = React.createElement('img', { src: msg, width: '200px', height: '200px' });
+				msg1 = React.createElement('img', { src: msg, width: '170px', height: '170px' });
 			} else {
 				msg1 = React.createElement(
 					'a',

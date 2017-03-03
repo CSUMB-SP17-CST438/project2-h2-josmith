@@ -74,7 +74,7 @@ var Message = React.createClass({
 		       msg.toLowerCase().includes(".png") ||
 		       msg.toLowerCase().includes(".gif")){
 		    	
-		    	msg1 = <img src={msg} width="200px" height="200px"/>;
+		    	msg1 = <img src={msg} width="170px" height="170px"/>;
 		    }else{
 		    	msg1 = <a href={msg}>{msg}</a>;
 		    }

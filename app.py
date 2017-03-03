@@ -55,6 +55,14 @@ def on_connect():
           the_text = str(new['text'])
           if(the_text[0:2] == '!!'):
              response = bot(new)
+             if(response == "mario"):
+                 response = mario
+             elif(response == "softkitty"):
+                 response = softkitty
+             elif(response == "yoshi"):
+                 response = yoshi
+             elif(response == "kenny"):
+                 response = kenny
              socketio.emit('bot:message', response, broadcast=True, include_self=True)
           
   except ImportError:
@@ -74,6 +82,14 @@ def handle_my_custom_event(data):
          the_text = str(data['text'])
          if(the_text[0:2] == '!!'):
              response = bot(data)
+             if(response == "mario"):
+                 response = mario
+             elif(response == "softkitty"):
+                 response = softkitty
+             elif(response == "yoshi"):
+                 response = yoshi
+             elif(response == "kenny"):
+                 response = kenny
              socketio.emit('bot:message', response, broadcast=True, include_self=True)
     
 @socketio.on('facebook:athenticate', namespace='/')
@@ -106,14 +122,13 @@ def bot(data):
         elif( the_text[3:6] == "say"):
             return the_text[7:len(the_text)]
         elif( the_text[3:len(the_text)] == "mario"):
-            socketio.sleep(seconds=0.1)
-            return mario
+            return "mario"
         elif( the_text[3:len(the_text)] == "softkitty"):
-            return softkitty
+            return "softkitty"
         elif( the_text[3:len(the_text)] == "yoshi"):
-            return yoshi
+            return "yoshi"
         elif( the_text[3:len(the_text)] == "kenny"):
-            return kenny
+            return "kenny"
         elif( the_text[3:7] == "text"):
             client = middleware.TwilioRestClient(account_sid,auth_token)
             message = client.messages.create(to="+18314285108", from_="+18312010628",
