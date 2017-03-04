@@ -7,7 +7,7 @@ from flask import jsonify
 from ast import literal_eval
 from sqlalchemy.orm import load_only
 from flask_socketio import SocketIO
-from testart import mario, softkitty, yoshi, kenny
+from testart import mario, softkitty, yoshi, kenny, minion, obama
 import middleware
 
 # for twilio
@@ -63,6 +63,10 @@ def on_connect():
                  response = yoshi
              elif(response == "kenny"):
                  response = kenny
+             elif(response == "minion"):
+                 response = minion
+             elif(response == "obama"):
+                 response = obama
              socketio.emit('bot:message', response, broadcast=True, include_self=True)
           
   except ImportError:
@@ -90,6 +94,10 @@ def handle_my_custom_event(data):
                  response = yoshi
              elif(response == "kenny"):
                  response = kenny
+             elif(response == "minion"):
+                 response = minion
+             elif(response == "obama"):
+                 response = obama
              socketio.emit('bot:message', response, broadcast=True, include_self=True)
     
 @socketio.on('facebook:athenticate', namespace='/')
@@ -118,7 +126,7 @@ def bot(data):
         if( the_text[3:len(the_text)] == "about"):
             return 'This is a chat app that was build in CSUMBs software engineering class in two weeks'
         elif( the_text[3:len(the_text)] == "help"):
-            return 'The options are about, help, say: !! say <words to say>, mario, softkitty, yoshi, and kenny'
+            return 'The options are about, help, say: !! say <words to say>, mario, softkitty, yoshi, text: !! text <message>, and kenny'
         elif( the_text[3:6] == "say"):
             return the_text[7:len(the_text)]
         elif( the_text[3:len(the_text)] == "mario"):
@@ -129,6 +137,10 @@ def bot(data):
             return "yoshi"
         elif( the_text[3:len(the_text)] == "kenny"):
             return "kenny"
+        elif( the_text[3:len(the_text)] == "minion"):
+            return "minion"
+        elif( the_text[3:len(the_text)] == "obama"):
+            return "obama"
         elif( the_text[3:7] == "text"):
             client = middleware.TwilioRestClient(account_sid,auth_token)
             message = client.messages.create(to="+18314285108", from_="+18312010628",
