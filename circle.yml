@@ -1,3 +1,3 @@
 test:
     override:
-        - python -m unit_tests
+        - python -m tests
