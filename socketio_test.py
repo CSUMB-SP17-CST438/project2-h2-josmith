@@ -19,7 +19,6 @@ class SocketIOTestCase(unittest.TestCase):
         # print r[1]['args'][0]['g']['name']
         self.assertEquals(len(r), 2)
         from_server = r[1]['args'][0]['g']
-        # print from_server
         self.assertEquals(
             from_server['name'],
             'Joshua Smith'
@@ -45,7 +44,6 @@ class SocketIOTestFb(unittest.TestCase):
         # print len(r)
         self.assertEquals(len(r), 2)
         from_server = r[1]['args'][0]['fb']
-        print from_server
         self.assertEquals(
             from_server['name'],
             'Hsoj Htims'
