@@ -1,0 +1,3 @@
+test:
+    override:
+        - python -m unit_tests

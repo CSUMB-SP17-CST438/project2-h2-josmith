@@ -10,7 +10,6 @@ class SocketIOTestCase(unittest.TestCase):
         
         client.get_received()
 
-
         client.emit('google:athenticate', msg)
         r = client.get_received()
         # print r[1]['args'][0]['g']['name']
@@ -35,8 +34,6 @@ class SocketIOTestFb(unittest.TestCase):
         client = app.socketio.test_client(app.app)
         
         client.get_received()
-        
-
 
         client.emit('facebook:athenticate', msg2)
         r = client.get_received()
