@@ -39,9 +39,15 @@ socket_ids = {}
 def hello():
     
     return render_template('index.html')
+
+@socketio.on('new message')
+def on_new_message(data):
+    socketio.emit('got your message', {
+        'your message': data['my message']
+})
 @socketio.on('connect')
 def on_connect():
-  print 'Someone connected!------------------------------------'
+#   print 'Someone connected!------------------------------------'
   try:
       #print the past messages
       messages = models.Message.query.order_by(models.Message.id.desc()).limit(10).from_self().order_by(models.Message.id.asc())
@@ -51,6 +57,7 @@ def on_connect():
           new = json.loads(str(message))
           socketio.sleep(seconds=0.2)
           socketio.emit('send:message', new, room=request.sid)
+        #   print new
           
           the_text = str(new['text'])
           if(the_text[0:2] == '!!'):
@@ -102,6 +109,7 @@ def handle_my_custom_event(data):
     
 @socketio.on('facebook:athenticate', namespace='/')
 def test_connect_facebook(data):
+    # print data
     socketio.emit('user:joinFB', {'fb': data}, broadcast=True, include_self=True)
     socketio.emit('user:meFB', {'fb': data}, room=request.sid)
     socket_ids[request.sid] = data['name'];
@@ -118,9 +126,10 @@ def test_disconnect():
     if request.sid in socket_ids:
          socketio.sleep(seconds=0.1)
          socketio.emit('user:left', {'users': socket_ids[request.sid]}, broadcast=True, include_self = True)
+
          
 def bot(data):
-     print json.dumps(data)
+    #  print json.dumps(data)
      the_text = str(data['text'])
      if(the_text[0:2] == '!!'):
         if( the_text[3:len(the_text)] == "about"):
