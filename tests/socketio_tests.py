@@ -70,7 +70,7 @@ class SocketIOTestMessageHelp(unittest.TestCase):
         from_server = r[0]['args'][0]
         self.assertEquals(
             from_server,
-            'The options are about, help, say: !! say <words to say>, mario, softkitty, yoshi, text: !! text <message>, and kenny'
+            'The options are about, help, say: !! say <words to say>, mario, softkitty, yoshi, text: !! text <message>, minion, obama and kenny'
         )
         
 class SocketIOTestMessagAbout(unittest.TestCase):
