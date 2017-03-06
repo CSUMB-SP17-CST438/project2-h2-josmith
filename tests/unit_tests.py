@@ -19,7 +19,7 @@ class ChatBotTestHelp(unittest.TestCase):
     def test_chatbot_command_hi(self):
         msg = {"text": "!! help"}
         r = app.bot(msg)
-        self.assertEquals(r, 'The options are about, help, say: !! say <words to say>, mario, softkitty, yoshi, text: !! text <message>, and kenny')
+        self.assertEquals(r, 'The options are about, help, say: !! say <words to say>, mario, softkitty, yoshi, text: !! text <message>, minion, obama and kenny')
         
 class ChatBotTestSay(unittest.TestCase):
     def test_chatbot_command_say(self):
