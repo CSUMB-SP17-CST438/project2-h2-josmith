@@ -1,8 +1,8 @@
 test:
     override:
-        - python -m tests
-        - python -m socketio_test
-        - python -m intergration_test
+        - python -m tests/unit_tests
+        - python -m tests/socketio_tests
+        - python -m tests/intergration_tests
 deployment:
   staging:
     branch: master

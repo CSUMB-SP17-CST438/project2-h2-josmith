@@ -1,4 +1,5 @@
-  # integration_tests.py
+import sys
+sys.path.append('..')
 import app, unittest, flask_testing, requests
 import urllib2
 

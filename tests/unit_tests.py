@@ -1,5 +1,5 @@
-# tests.py
-# import random_functions
+import sys
+sys.path.append('..')
 import app
 import unittest
 
