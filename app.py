@@ -26,8 +26,8 @@ app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 
 # database stuff
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://smitjb45:Goldfish83-@localhost/postgres'
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://smitjb45:Goldfish83-@localhost/postgres'
 db = flask_sqlalchemy.SQLAlchemy(app)
 
 
@@ -40,11 +40,6 @@ def hello():
     
     return render_template('index.html')
 
-@socketio.on('new message')
-def on_new_message(data):
-    socketio.emit('got your message', {
-        'your message': data['my message']
-})
 @socketio.on('connect')
 def on_connect():
 #   print 'Someone connected!------------------------------------'
@@ -52,7 +47,7 @@ def on_connect():
       #print the past messages
       messages = models.Message.query.order_by(models.Message.id.desc()).limit(10).from_self().order_by(models.Message.id.asc())
       new = json.loads(str(messages[0]))
-      
+    
       for message in messages:
           new = json.loads(str(message))
           socketio.sleep(seconds=0.2)
