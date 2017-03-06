@@ -129,7 +129,7 @@ def bot(data):
         if( the_text[3:len(the_text)] == "about"):
             return 'This is a chat app that was build in CSUMBs software engineering class in two weeks'
         elif( the_text[3:len(the_text)] == "help"):
-            return 'The options are about, help, say: !! say <words to say>, mario, softkitty, yoshi, text: !! text <message>, and kenny'
+            return 'The options are about, help, say: !! say <words to say>, mario, softkitty, yoshi, text: !! text <message>, minion, obama and kenny'
         elif( the_text[3:6] == "say"):
             return the_text[7:len(the_text)]
         elif( the_text[3:len(the_text)] == "mario"):
