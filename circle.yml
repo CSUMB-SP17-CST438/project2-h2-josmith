@@ -3,3 +3,8 @@ test:
         - python -m tests
         - python -m socketio_test
         - python -m intergration_test
+deployment:
+  staging:
+    branch: master
+    heroku:
+      appname: boiling-cove-63942
