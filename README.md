@@ -14,6 +14,14 @@ Technologies used: Python Flask, Reactjs, Socketio, Postgres, and Twilio API.
 ### I would say it needs a lot of UI work, but in 2 weeks, I'm happy with it.
 ### I think one of the big things that I would improve is the bot
 
+# Part2
+### I left the team the same since I liked it. I did change the font style to look more like a news paper.
+### One of the thinks I would change was the New API i used for part 2 of the project. It sends SMS to my phone by sending text 
+### from the bot. It doesn't require a phone number sice it can onlt send to development phones that are put in the twilio account
+### I would also make the screen auto scroll, but I didn't get around to it. 
+### Lastly, I lost a point because the database recorded messages that were sent when the user wasn't loged in. 
+### when the user loged back in the messages were viewable. I fixed that problem.
+
 
 
 Some starter code for React on Flask.

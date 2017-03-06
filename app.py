@@ -11,8 +11,8 @@ from testart import mario, softkitty, yoshi, kenny, minion, obama
 import middleware
 
 # for twilio
-account_sid = "ACf8a0a19a076e5b5cfb46bcb1a2800a02"
-auth_token = "8fcaaf3a59fc15c79a156f55db92d38a"
+account_sid = os.getenv("account_sid")
+auth_token = os.getenv("auth_token")
 
 try:
     import json
@@ -27,7 +27,6 @@ socketio = SocketIO(app)
 
 # database stuff
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://smitjb45:Goldfish83-@localhost/postgres'
 db = flask_sqlalchemy.SQLAlchemy(app)
 
 
@@ -80,8 +79,8 @@ def handle_my_custom_event(data):
      if request.sid in socket_ids:
          socketio.sleep(seconds=0.1)
          massage = models.Message(json.dumps(data, ensure_ascii=False))
-        #  models.db.session.add(massage)
-        #  models.db.session.commit()
+         models.db.session.add(massage)
+         models.db.session.commit()
          
          socketio.sleep(seconds=0.1)
          socketio.emit('send:message', data, broadcast=True, include_self=False)
