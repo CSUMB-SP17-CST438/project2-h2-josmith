@@ -4,6 +4,7 @@ flask_socketio
 requests
 flask_sqlalchemy
 psycopg2
+Flask-Testing
 
 # Requirements for server-notifications-django
 

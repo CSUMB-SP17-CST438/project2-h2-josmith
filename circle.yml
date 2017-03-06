@@ -2,3 +2,4 @@ test:
     override:
         - python -m tests
         - python -m socketio_test
+        - python -m intergration_test
