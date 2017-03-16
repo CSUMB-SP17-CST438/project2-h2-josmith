@@ -6,7 +6,6 @@ import urllib2
 msg = """<html>
     <head>
           <link rel="stylesheet" href="static/styles.css">
-          <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
     </head>
     <body>
         
