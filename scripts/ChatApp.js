@@ -104,8 +104,13 @@ var UserCount = React.createClass({
 
 var MessageList = React.createClass({
 	render() {
+		
+    var container = {
+        overflowY: "scroll",
+        height: "740px"
+    }
 		return (
-			<div className='messages'>
+			<div className='messages' style="container">
 				<h2> Conversation: </h2>
 				{
 					this.props.messages.map((message, i) => {
